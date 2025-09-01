@@ -1,0 +1,41 @@
+#! flutter pub get
+#! dart run package_rename -p "package_rename_config.yaml"
+# dart run package_rename -p "path/to/package_rename_config.yaml"
+
+package_rename_config:
+  android:
+    app_name: Scavenge
+    package_name: com.tostydevs.scavenge_hunt
+#    override_old_package: com.example.example
+    lang: kotlin
+
+  ios:
+    app_name: Scavenge
+    bundle_name: Scavenge
+    package_name: com.tostydevs.scavenge_hunt
+
+
+package_rename_config-development:
+  android:
+    app_name: Dev-Scavenge
+    package_name: com.tostydevs.scavenge_hunt.dev
+#    override_old_package: com.example.example
+    lang: kotlin
+
+  ios:
+    app_name: Dev-Scavenge
+    bundle_name: Scavenge
+    package_name: com.tostydevs.scavenge_hunt.dev
+    
+    
+package_rename_config-production:
+  android:
+    app_name: Scavenge
+    package_name: com.tostydevs.scavenge_hunt.prod
+#    override_old_package: com.example.example
+    lang: kotlin
+
+  ios:
+    app_name: Scavenge
+    bundle_name: Scavenge
+    package_name: com.tostydevs.scavenge_hunt.prod

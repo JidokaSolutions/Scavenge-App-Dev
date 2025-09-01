@@ -1,5 +1,5 @@
 name: scavenge_hunt
-description: "Scavenge hunt app. Owned by Bryce Meizen."
+description: "Scavenge Hunt app. Owned by Bryce Meizen. Developed by Waqad, Saif, and Ahad"
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
@@ -24,12 +24,43 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Icons
   cupertino_icons: ^1.0.8
+  font_awesome_flutter: ^10.9.1
+  google_fonts: ^6.3.1
+
+
+  # Location
+  geolocator: ^14.0.2
+
+  # Local Database
+  drift: ^2.28.1
+  drift_flutter: ^0.2.5
+  path_provider: ^2.1.5
+
+  # Logging
+  logger: ^2.6.1
+
+
+  # Utils
+  equatable: ^2.0.7 # Object equality checks
+  intl: ^0.20.2 # date manipulation
+  url_launcher: ^6.3.2 # for launching urls
+  force_update_helper: ^0.2.1 # update helper
+
+
+  # app-configuration
+  package_rename: ^1.10.0
+  flutter_launcher_icons: ^0.14.4
+
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  drift_dev: ^2.28.1
+  build_runner: ^2.7.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
