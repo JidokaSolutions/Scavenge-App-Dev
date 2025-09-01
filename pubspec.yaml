@@ -36,6 +36,9 @@ dependencies:
   flutter_riverpod: ^3.0.0-dev.17
   riverpod_annotation: ^3.0.0-dev.17
 
+  # Network calls
+  dio: ^5.9.0
+
   # Location
   geolocator: ^14.0.2
 
@@ -60,8 +63,6 @@ dependencies:
   # app-configuration
   package_rename: ^1.10.0
   flutter_launcher_icons: ^0.14.4
-
-
 
 
 dev_dependencies:
