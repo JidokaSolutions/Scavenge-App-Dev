@@ -1,17 +1,17 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:force_update_helper/force_update_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'core/widgets/dialogs/show_alert_dialog.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
