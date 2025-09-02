@@ -21,7 +21,6 @@ environment:
 
 
 dependencies:
-  sentry_flutter: ^9.6.0
   flutter:
     sdk: flutter
 
@@ -53,6 +52,9 @@ dependencies:
   # Logging
   logger: ^2.6.1
 
+  # Error Reporting
+  sentry_flutter: ^9.6.0
+
 
   # Permissions
   permission_handler: ^12.0.1
@@ -63,6 +65,9 @@ dependencies:
   intl: ^0.20.2 # date manipulation
   url_launcher: ^6.3.2 # for launching urls
   force_update_helper: ^0.2.1 # update helper
+
+  # Shorebird
+  shorebird_code_push: ^2.0.4
 
 
   # app-configuration
