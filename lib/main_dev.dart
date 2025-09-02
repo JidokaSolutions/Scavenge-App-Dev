@@ -50,6 +50,8 @@ Future<void> main() async {
   // Use Sentry implementation
   logger = MySentryLogger();
 
+
+  // TODO: Remove this line after sending the first sample event to sentry.
   try {
     throw StateError('Sentry Test Exception');
   } catch (exception, stackTrace) {
