@@ -6,11 +6,12 @@ import 'package:force_update_helper/force_update_helper.dart';
 import 'package:scavenge_hunt/core/constants/app_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'core/logger/logger.dart';
 import 'core/widgets/dialogs/show_alert_dialog.dart';
 import 'features/landing/ui/landing_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-
+late final AppLogger logger;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
