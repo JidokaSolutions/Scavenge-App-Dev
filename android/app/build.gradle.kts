@@ -8,7 +8,8 @@ plugins {
 android {
     namespace = "com.tostydevs.scavenge_hunt"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+//    ndkVersion = flutter.ndkVersion
+    ndkVersion = "27.0.12077973" // 👈 force correct NDK version
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

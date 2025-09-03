@@ -27,7 +27,8 @@ class MyApp extends StatelessWidget {
             // * Real apps should fetch this from an API endpoint or via
             // * Firebase Remote Config
             // + TODO: change this once tested for the first time, to 1.0.0 otherwise will shhow the dialog everytime
-            fetchRequiredVersion: () => Future.value('2.0.0'),
+            // fetchRequiredVersion: () => Future.value('2.0.0'),
+            fetchRequiredVersion: () => Future.value('1.0.0'),
             // * Example ID from this app: https://fluttertips.dev/
             // * To avoid mistakes, store the ID as an environment variable and
             // * read it with String.fromEnvironment
