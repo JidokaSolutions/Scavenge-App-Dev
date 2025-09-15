@@ -1,20 +1,28 @@
-import 'package:scavenge_hunt/constants/app_colors.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge_hunt/constants/app_images.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/view/screens/auth/forgot_pass/forgot_pass.dart';
-import 'package:scavenge_hunt/view/screens/auth/sign_up/sign_up.dart';
-import 'package:scavenge_hunt/view/screens/home/home.dart';
-import 'package:scavenge_hunt/view/widget/blur_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_check_box_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/headings_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_button_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_text_field_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_text_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scavenge_hunt/view/widget/social_login_%20widget.dart';
+
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
+
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
+import 'package:scavenge_hunt/features/auth/ui/sign_up/sign_up.dart';
+
+import 'package:scavenge_hunt/core/widgets/custom_check_box_widget.dart';
+import 'package:scavenge_hunt/core/widgets/social_login_ widget.dart';
+import 'package:scavenge_hunt/features/landing/ui/home.dart';
+
+import 'package:scavenge_hunt/features/auth/ui/forgot_pass/forgot_pass.dart';
+
+
 
 class Login extends StatelessWidget {
   const Login({super.key});

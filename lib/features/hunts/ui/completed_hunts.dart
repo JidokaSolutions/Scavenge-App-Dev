@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scavenge/constants/app_colors.dart';
-import 'package:scavenge/constants/app_fonts.dart';
-import 'package:scavenge/constants/app_images.dart';
-import 'package:scavenge/constants/app_sizes.dart';
-import 'package:scavenge/main.dart';
-import 'package:scavenge/view/screens/profile/completed_hunts/completed_hunt_details.dart';
-import 'package:scavenge/view/widget/common_image_view_widget.dart';
-import 'package:scavenge/view/widget/custom_app_bar_widget.dart';
-import 'package:scavenge/view/widget/custom_container_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/features/hunts/ui/completed_hunt_details.dart';
+import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class CompletedHunts extends StatelessWidget {
   const CompletedHunts({super.key});

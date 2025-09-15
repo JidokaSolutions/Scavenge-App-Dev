@@ -1,13 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/constants/app_colors.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/view/widget/custom_app_bar_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_button_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class SoloHuntDetails extends StatelessWidget {
   const SoloHuntDetails({super.key});

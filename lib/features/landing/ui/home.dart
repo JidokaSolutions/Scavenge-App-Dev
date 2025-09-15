@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:scavenge/constants/app_colors.dart';
-import 'package:scavenge/constants/app_fonts.dart';
-import 'package:scavenge/constants/app_images.dart';
-import 'package:scavenge/constants/app_sizes.dart';
-import 'package:scavenge/main.dart';
-import 'package:scavenge/view/screens/create_your_game/create_your_game.dart';
-import 'package:scavenge/view/screens/join_game/join_game.dart';
-import 'package:scavenge/view/screens/profile/profile.dart';
-import 'package:scavenge/view/widget/blur_container_widget.dart';
-import 'package:scavenge/view/widget/common_image_view_widget.dart';
-import 'package:scavenge/view/widget/custom_container_widget.dart';
-import 'package:scavenge/view/widget/my_button_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/app.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/create_your_game.dart';
+import 'package:scavenge_hunt/features/join_game/ui/join_game.dart';
+import 'package:scavenge_hunt/features/profile/ui/profile.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

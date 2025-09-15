@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge/constants/app_images.dart';
-import 'package:scavenge/constants/app_sizes.dart';
-import 'package:scavenge/view/screens/auth/login.dart';
-import 'package:scavenge/view/widget/blur_container_widget.dart';
-import 'package:scavenge/view/widget/custom_container_widget.dart';
-import 'package:scavenge/view/widget/my_button_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/features/auth/ui/login.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class LocationPermission extends StatelessWidget {
   const LocationPermission({super.key});

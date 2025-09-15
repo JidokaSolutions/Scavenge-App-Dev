@@ -5,6 +5,7 @@ import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/features/landing/ui/get_started.dart';
 
 import '../../../core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

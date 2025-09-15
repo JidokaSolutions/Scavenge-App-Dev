@@ -1,13 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:scavenge/constants/app_colors.dart';
-import 'package:scavenge/constants/app_fonts.dart';
-import 'package:scavenge/constants/app_sizes.dart';
-import 'package:scavenge/view/screens/profile/completed_hunts/completed_task_details.dart';
-import 'package:scavenge/view/widget/custom_app_bar_widget.dart';
-import 'package:scavenge/view/widget/custom_container_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/features/hunts/ui/completed_task_details.dart';
+import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class CompletedTasks extends StatelessWidget {
   const CompletedTasks({super.key});

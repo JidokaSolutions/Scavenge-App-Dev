@@ -1,15 +1,15 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/constants/app_colors.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/main.dart';
-import 'package:scavenge_hunt/view/widget/blur_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/common_image_view_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_app_bar_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class Leaderboard extends StatelessWidget {
   const Leaderboard({super.key});

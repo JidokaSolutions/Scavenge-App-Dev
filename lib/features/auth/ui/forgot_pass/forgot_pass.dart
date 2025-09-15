@@ -1,13 +1,16 @@
-import 'package:scavenge_hunt/constants/app_images.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/view/screens/auth/forgot_pass/otp_verification.dart';
-import 'package:scavenge_hunt/view/widget/blur_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/custom_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/headings_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_button_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_text_field_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
+
+import 'otp_verification.dart';
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});

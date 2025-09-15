@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scavenge_hunt/constants/app_colors.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge_hunt/constants/app_images.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/constants/app_styling.dart';
-import 'package:scavenge_hunt/main.dart';
-import 'package:scavenge_hunt/view/screens/create_your_game/waiting_for_players.dart';
-import 'package:scavenge/view/widget/common_image_view_widget.dart';
-import 'package:scavenge/view/widget/my_button_widget.dart';
-import 'package:scavenge/view/widget/my_text_field_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/constants/app_styling.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/waiting_for_players.dart';
+import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class InviteFriends extends StatelessWidget {
   const InviteFriends({super.key});

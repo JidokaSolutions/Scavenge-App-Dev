@@ -1,16 +1,18 @@
-import 'package:scavenge_hunt/constants/app_colors.dart';
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge_hunt/constants/app_images.dart';
-import 'package:scavenge_hunt/constants/app_sizes.dart';
-import 'package:scavenge_hunt/view/screens/auth/forgot_pass/create_new_pass.dart';
-import 'package:scavenge_hunt/view/widget/blur_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/my_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scavenge_hunt/view/widget/custom_container_widget.dart';
-import 'package:scavenge_hunt/view/widget/headings_widget.dart';
 import 'package:pinput/pinput.dart';
-import 'package:scavenge_hunt/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
+import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
+import 'create_new_pass.dart';
 
 class OTPVerification extends StatelessWidget {
   const OTPVerification({super.key});
@@ -21,11 +23,7 @@ class OTPVerification extends StatelessWidget {
       bgImage: Assets.imagesAuthBg,
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [_OTPVerification()],
-        ),
+        body: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.stretch, children: [_OTPVerification()]),
       ),
     );
   }
@@ -38,17 +36,8 @@ class _OTPVerification extends StatelessWidget {
       width: 48,
       height: 48,
       margin: EdgeInsets.zero,
-      textStyle: TextStyle(
-        fontSize: 16,
-        height: 0.0,
-        fontWeight: FontWeight.w500,
-        fontFamily: AppFonts.Nunito,
-        color: kTertiaryColor,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: kPrimaryColor,
-      ),
+      textStyle: TextStyle(fontSize: 16, height: 0.0, fontWeight: FontWeight.w500, fontFamily: AppFonts.Nunito, color: kTertiaryColor),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: kPrimaryColor),
     );
 
     return Padding(
@@ -66,22 +55,13 @@ class _OTPVerification extends StatelessWidget {
                   onTap: () {
                     Get.back();
                   },
-                  child: Image.asset(
-                    Assets.imagesArrowBack,
-                    height: 20,
-                    width: 20,
-                  ),
+                  child: Image.asset(Assets.imagesArrowBack, height: 20, width: 20),
                 ),
                 Image.asset(Assets.imagesLogo, height: 65),
                 SizedBox(height: 20, width: 20),
               ],
             ),
-            AuthHeading(
-              showLogo: false,
-              title: 'Verification Code',
-              subTitle:
-                  "Please enter the code we just sent to your email abc*****12@gmail.com.",
-            ),
+            AuthHeading(showLogo: false, title: 'Verification Code', subTitle: "Please enter the code we just sent to your email abc*****12@gmail.com."),
             Pinput(
               keyboardType: TextInputType.number,
               length: 6,
@@ -104,19 +84,8 @@ class _OTPVerification extends StatelessWidget {
               child: Wrap(
                 children: [
                   // Sent code again 01:00
-                  MyText(
-                    text: 'Didn’t receive OTP? ',
-                    size: 12,
-                    color: kTertiaryColor.withValues(alpha: 0.6),
-                  ),
-                  MyText(
-                    onTap: () {},
-                    decoration: TextDecoration.underline,
-                    text: 'Resend',
-                    fontFamily: AppFonts.Fredoka,
-                    weight: FontWeight.w500,
-                    size: 12,
-                  ),
+                  MyText(text: 'Didn’t receive OTP? ', size: 12, color: kTertiaryColor.withValues(alpha: 0.6)),
+                  MyText(onTap: () {}, decoration: TextDecoration.underline, text: 'Resend', fontFamily: AppFonts.Fredoka, weight: FontWeight.w500, size: 12),
                 ],
               ),
             ),

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:scavenge_hunt/view/screens/create_your_game/choose_game_type.dart';
-import 'package:scavenge_hunt/view/screens/create_your_game/choose_play_mode.dart';
-import 'package:scavenge_hunt/view/screens/create_your_game/choose_race_type.dart';
-import 'package:scavenge_hunt/view/screens/create_your_game/invite_friends.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/choose_game_type.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/choose_play_mode.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/choose_race_type.dart';
+import 'package:scavenge_hunt/features/create_your_game/ui/invite_friends.dart';
 
 enum GameType { timeBase, judging, combination }
 

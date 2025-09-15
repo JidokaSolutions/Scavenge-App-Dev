@@ -1,12 +1,13 @@
-import 'package:scavenge_hunt/constants/app_fonts.dart';
-import 'package:scavenge/constants/app_images.dart';
-import 'package:scavenge/constants/app_sizes.dart';
-import 'package:scavenge/constants/app_styling.dart';
-import 'package:scavenge/view/screens/launch/location_permission.dart';
-import 'package:scavenge/view/widget/my_button_widget.dart';
-import 'package:scavenge/view/widget/my_text_widget.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
+import 'package:scavenge_hunt/core/constants/app_images.dart';
+import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/constants/app_styling.dart';
+import 'package:scavenge_hunt/features/landing/ui/location_permission.dart';
+import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
+import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
