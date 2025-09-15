@@ -1,7 +1,7 @@
 // widgets/location_widget.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:scavenge_hunt/features/location/location_provider.dart';
+import 'package:scavenge_hunt/features/location/logic/location_provider.dart';
 
 class LocationWidget extends ConsumerWidget {
   const LocationWidget({super.key});

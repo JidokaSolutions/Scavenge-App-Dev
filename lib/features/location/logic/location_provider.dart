@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:scavenge_hunt/features/location/models/location_state.dart';
-import 'package:scavenge_hunt/features/location/provider/location_notifier.dart';
+import 'package:scavenge_hunt/features/location/logic/location_notifier.dart';
 
 // Provider for the LocationNotifier
 final locationProvider = StateNotifierProvider<LocationNotifier, LocationModel>((ref) => LocationNotifier());
