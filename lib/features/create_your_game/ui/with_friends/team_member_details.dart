@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/app.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
