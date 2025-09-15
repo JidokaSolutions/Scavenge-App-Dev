@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:scavenge_hunt/constants/app_colors.dart';

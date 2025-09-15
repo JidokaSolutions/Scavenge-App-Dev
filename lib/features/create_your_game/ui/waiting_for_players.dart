@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:scavenge_hunt/constants/app_colors.dart';
 import 'package:scavenge/constants/app_fonts.dart';

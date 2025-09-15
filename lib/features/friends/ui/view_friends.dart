@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:scavenge_hunt/constants/app_colors.dart';

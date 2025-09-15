@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/constants/app_colors.dart';
 import 'package:scavenge_hunt/constants/app_fonts.dart';
