@@ -9,7 +9,7 @@ android {
     namespace = "com.tostydevs.scavenge_hunt"
     compileSdk = flutter.compileSdkVersion
 //    ndkVersion = flutter.ndkVersion
-    ndkVersion = "27.0.12077973" // 👈 force correct NDK version
+    ndkVersion = "28.2.13676358" // "27.0.12077973" // 👈 force correct NDK version
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
