@@ -49,6 +49,7 @@ dependencies:
   riverpod: ^2.6.1
   flutter_riverpod: ^2.6.1
   get: ^4.7.2 # temporary, until we replace its usage from UI
+  go_router: ^14.7.1
 
 
 #  flutter_riverpod: ^3.0.0-dev.17

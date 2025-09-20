@@ -2,24 +2,27 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:force_update_helper/force_update_helper.dart';
 import 'package:scavenge_hunt/core/constants/app_strings.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'core/logger/logger.dart';
+import 'core/routes/routes.dart';
 import 'core/widgets/dialogs/show_alert_dialog.dart';
-import 'features/landing/ui/landing_page.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 late final AppLogger logger;
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: _rootNavigatorKey,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(goRouterProvider);
+
+    return MaterialApp.router(
+      routerConfig: router,
       builder: (context, child) {
         return ForceUpdateWidget(
           navigatorKey: _rootNavigatorKey,
@@ -61,7 +64,6 @@ class MyApp extends StatelessWidget {
       },
       title: AppStrings.appName,
       theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple)),
-      home: const LandingPage(),
     );
   }
 }
