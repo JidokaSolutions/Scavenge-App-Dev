@@ -157,8 +157,8 @@ class CompletedTaskDetails extends StatelessWidget {
                         itemCount: 10,
                         itemBuilder: (BuildContext context, int index) {
                           return CommonImageView(
-                            height: Get.height,
-                            width: Get.width,
+                            height: 140,
+                            width: double.infinity,
                             radius: 12,
                             url: dummyImg,
                             fit: BoxFit.cover,

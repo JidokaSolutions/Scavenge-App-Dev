@@ -45,8 +45,8 @@ class CheckEvidenceAccuracy extends StatelessWidget {
                   itemCount: 5,
                   itemBuilder: (context, index) {
                     return CommonImageView(
-                      height: Get.height,
-                      width: Get.width,
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
                       radius: 0,
                       url: dummyImg,
                       fit: BoxFit.cover,

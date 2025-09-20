@@ -47,7 +47,7 @@ class UploadEvidence extends StatelessWidget {
               children: [
                 CommonImageView(
                   height: 300,
-                  width: Get.width,
+                  width: MediaQuery.of(context).size.width,
                   radius: 16,
                   url: dummyImg,
                   fit: BoxFit.cover,
@@ -106,8 +106,8 @@ class UploadEvidence extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 if (index == 3)
                   return Container(
-                    height: Get.height,
-                    width: Get.width,
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: kPrimaryColor, width: 1.5),
@@ -150,8 +150,8 @@ class UploadEvidence extends StatelessWidget {
                               : Border.all(width: 1.5, color: kPrimaryColor),
                         ),
                         child: CommonImageView(
-                          height: Get.height,
-                          width: Get.width,
+                          height: MediaQuery.of(context).size.height,
+                          width: MediaQuery.of(context).size.width,
                           radius: 10,
                           fit: BoxFit.cover,
                           url: dummyImg,
