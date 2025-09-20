@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../constants/app_colors.dart';
 
@@ -44,8 +43,8 @@ class CustomCheckBox extends StatelessWidget {
                     margin: EdgeInsets.all(3),
                     duration: Duration(milliseconds: 230),
                     curve: Curves.easeInOut,
-                    height: Get.height,
-                    width: Get.width,
+                    height: double.infinity,
+                    width: double.infinity,
                     decoration: BoxDecoration(
                       color: kSecondaryColor,
                       shape: BoxShape.circle,
