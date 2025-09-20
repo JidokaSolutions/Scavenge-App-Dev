@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/constants/app_images.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../../core/routes/app_navigation.dart';
 import '../../../../core/widgets/blur_container_widget.dart';
 import '../../../../core/widgets/custom_container_widget.dart';
 import '../../../../core/widgets/headings_widget.dart';
@@ -45,7 +45,7 @@ class _CreateNewPassword extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.back();
+                    AppNavigation.pop(context);
                   },
                   child: Image.asset(
                     Assets.imagesArrowBack,
