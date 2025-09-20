@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/auth/ui/login.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class LocationPermission extends StatelessWidget {
   const LocationPermission({super.key});
@@ -60,10 +58,10 @@ class LocationPermission extends StatelessWidget {
                       ),
                       MyButton(
                         buttonText: 'Allow',
-                        onTap: () => Get.to(() => Login()),
+                        onTap: () => AppNavigation.goToLogin(context),
                       ),
                       MyText(
-                        onTap: () => Get.to(() => Login()),
+                        onTap: () => AppNavigation.goToLogin(context),
 
                         text: 'Don\'t Allow',
                         size: 14,

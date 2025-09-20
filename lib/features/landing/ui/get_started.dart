@@ -2,12 +2,10 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/features/landing/ui/location_permission.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});
@@ -17,8 +15,8 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.only(top: 55),
-        height: Get.height,
-        width: Get.width,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.imagesSplashBg),
@@ -53,7 +51,7 @@ class GetStarted extends StatelessWidget {
                     paddingBottom: 34,
                   ),
                   MyButton(
-                    onTap: () => Get.to(() => LocationPermission()),
+                    onTap: () => AppNavigation.goToLocationPermission(context),
                     buttonText: '',
                     child: Row(
                       spacing: 16,

@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/app.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/create_your_game.dart';
-import 'package:scavenge_hunt/features/join_game/ui/join_game.dart';
-import 'package:scavenge_hunt/features/profile/ui/profile.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -35,7 +31,7 @@ class Home extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Get.to(() => Profile());
+                      AppNavigation.goToProfile(context);
                     },
                     child: Container(
                       height: 51,
@@ -129,7 +125,10 @@ class Home extends StatelessWidget {
                       child: MyButton(
                         buttonText: 'Play Now',
                         onTap: () {
-                          Get.dialog(_ChooseYourAdventure());
+                          showDialog(
+                            context: context,
+                            builder: (context) => _ChooseYourAdventure(),
+                          );
                         },
                         height: 60,
                         textSize: 24,
@@ -173,7 +172,7 @@ class _ChooseYourAdventure extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -195,7 +194,7 @@ class _ChooseYourAdventure extends StatelessWidget {
                     MyButton(
                       buttonText: 'Host Game',
                       onTap: () {
-                        Get.to(() => CreateYourGame());
+                        AppNavigation.goToCreateGame(context);
                       },
                       textSize: 16,
                     ),
@@ -203,7 +202,7 @@ class _ChooseYourAdventure extends StatelessWidget {
                     MyBorderButton(
                       buttonText: 'Join Game',
                       onTap: () {
-                        Get.to(() => JoinGame());
+                        AppNavigation.goToJoinGame(context);
                       },
                       textSize: 16,
                     ),

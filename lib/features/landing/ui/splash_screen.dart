@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
-import 'package:scavenge_hunt/features/landing/ui/get_started.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 
 import '../../../core/constants/app_images.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -20,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void splashScreenHandler() {
-    Timer(Duration(seconds: 3), () => Get.offAll(() => GetStarted()));
+    Timer(Duration(seconds: 3), () => AppNavigation.goToGetStarted(context));
   }
 
   @override
@@ -28,8 +26,8 @@ class _SplashScreenState extends State<SplashScreen> {
     return Material(
       color: kPrimaryColor,
       child: Container(
-        height: Get.height,
-        width: Get.width,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Assets.imagesSplashBg),
