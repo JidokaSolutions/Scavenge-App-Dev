@@ -6,6 +6,7 @@ import '../../../../core/constants/app_fonts.dart';
 import '../../../../core/constants/app_images.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/routes/app_navigation.dart';
+import '../../../../core/utils/validators.dart';
 import '../../../../core/widgets/custom_check_box_widget.dart';
 import '../../../../core/widgets/headings_widget.dart';
 import '../../../../core/widgets/my_button_widget.dart';
@@ -134,17 +135,19 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             MyTextField(
               controller: _firstNameController,
               hintText: 'First Name',
+              validator: (value) => Validators.validateName(value, fieldName: 'First Name'),
             ),
 
             MyTextField(
               controller: _lastNameController,
               hintText: 'Last Name',
+              validator: (value) => Validators.validateName(value, fieldName: 'Last Name'),
             ),
-
 
             MyTextField(
               controller: _emailController,
               hintText: 'Email',
+              validator: Validators.validateEmail,
             ),
 
             MyTextField(
@@ -152,6 +155,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               hintText: 'Date of Birth',
               isReadOnly: true,
               onTap: _selectDate,
+              validator: (value) => Validators.validateDateOfBirth(_selectedDate),
               suffix: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Image.asset(Assets.imagesCalendar, height: 18)],
@@ -164,6 +168,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               controller: _passwordController,
               hintText: 'Password',
               isObSecure: true,
+              validator: Validators.validatePassword,
               suffix: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Image.asset(Assets.imagesVisibility, height: 20)],
@@ -175,6 +180,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               hintText: 'Confirm Password',
               isObSecure: true,
               marginBottom: 15,
+              validator: (value) => Validators.validateConfirmPassword(value, _passwordController.text),
               suffix: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Image.asset(Assets.imagesVisibility, height: 20)],

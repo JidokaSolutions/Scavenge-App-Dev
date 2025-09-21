@@ -24,6 +24,7 @@ class MyTextField extends StatelessWidget {
     this.isReadOnly,
     this.onTap,
     this.fillColor,
+    this.validator,
   });
 
   final String? labelText, hintText;
@@ -36,6 +37,7 @@ class MyTextField extends StatelessWidget {
   final Color? fillColor;
   final Widget? prefix, suffix;
   final VoidCallback? onTap;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class MyTextField extends StatelessWidget {
               textInputAction: TextInputAction.next,
               obscureText: isObSecure!,
               obscuringCharacter: '*',
+              validator: validator,
               style: TextStyle(
                 fontSize: 14,
                 color: kTertiaryColor,
