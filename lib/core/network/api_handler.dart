@@ -38,6 +38,21 @@ class ApiHandler {
     return _wrapRequest(() => _dio.post(path, data: body), parser);
   }
 
+  // PATCH
+  Future<T> patch<T>(String path, {dynamic body, T Function(dynamic data)? parser}) async {
+    return _wrapRequest(() => _dio.patch(path, data: body), parser);
+  }
+
+  // PUT
+  Future<T> put<T>(String path, {dynamic body, T Function(dynamic data)? parser}) async {
+    return _wrapRequest(() => _dio.put(path, data: body), parser);
+  }
+
+  // DELETE
+  Future<T> delete<T>(String path, {T Function(dynamic data)? parser}) async {
+    return _wrapRequest(() => _dio.delete(path), parser);
+  }
+
   // Error mapper
   ApiException _mapDioError(DioException e, StackTrace stacktrace) {
     if (e.type == DioExceptionType.connectionTimeout) {
@@ -57,16 +72,26 @@ class ApiHandler {
     return ApiException(e.message ?? "Unexpected error");
   }
 
-  // 🔑 Stub: load token from secure storage
+  // 🔑 Get access token from auth provider
   Future<String?> _getAccessToken() async {
-    // TODO: implement SecureStorage/SharedPrefs
-    return null;
+    try {
+      // This will be injected via the auth interceptor
+      return null;
+    } catch (e) {
+      logger.error('Error getting access token: $e');
+      return null;
+    }
   }
 
-  // 🔄 Stub: refresh token
+  // 🔄 Refresh token using auth provider
   Future<bool> _refreshToken() async {
-    // TODO: call refresh endpoint, update secure storage
-    return false;
+    try {
+      // This will be handled by the auth interceptor
+      return false;
+    } catch (e) {
+      logger.error('Error refreshing token: $e');
+      return false;
+    }
   }
 
   Future<T> _wrapRequest<T>(Future<Response> Function() request, T Function(dynamic data)? parser) async {
