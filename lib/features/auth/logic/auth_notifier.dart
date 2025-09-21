@@ -90,15 +90,15 @@ class AuthNotifier extends StateNotifier<AuthState> {
         phone: phone,
       );
 
-      final authResponse = await _authApiService.register(registerRequest);
+      // Register user (creates user, returns UserOut)
+      await _authApiService.register(registerRequest);
 
-      await _storeAuthData(authResponse);
-
+      // Registration successful - set state to show success
       state = state.copyWith(
-        status: AuthStatus.authenticated,
-        user: authResponse,
+        status: AuthStatus.registrationSuccess,
         errorMessage: null,
       );
+
     } catch (e) {
       logger.error('Registration error: $e');
       state = state.copyWith(
