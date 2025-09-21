@@ -66,101 +66,103 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          const AuthHeading(
-            title: 'Welcome back!',
-            subTitle: 'Sign in to continue',
-          ),
-          SizedBox(height: AppSizes.HEIGHT_20),
-
-          MyTextField(
-            controller: _emailController,
-            hintText: 'Email',
-          ),
-
-          MyTextField(
-            controller: _passwordController,
-            hintText: 'Password',
-            isObSecure: true,
-            marginBottom: 12,
-            suffix: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Image.asset(Assets.imagesVisibility, height: 20)],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const AuthHeading(
+              title: 'Welcome back!',
+              subTitle: 'Sign in to continue',
             ),
-          ),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  CustomCheckBox(
-                    isActive: _rememberMe,
-                    onTap: () {
-                      setState(() {
-                        _rememberMe = !_rememberMe;
-                      });
-                    },
-                  ),
-                  SizedBox(width: 8),
-                  MyText(
-                    text: 'Remember me',
+            MyTextField(
+              controller: _emailController,
+              hintText: 'Email',
+            ),
+
+            MyTextField(
+              controller: _passwordController,
+              hintText: 'Password',
+              isObSecure: true,
+              marginBottom: 12,
+              suffix: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              ),
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    CustomCheckBox(
+                      isActive: _rememberMe,
+                      onTap: () {
+                        setState(() {
+                          _rememberMe = !_rememberMe;
+                        });
+                      },
+                    ),
+                    SizedBox(width: 8),
+                    MyText(
+                      text: 'Remember me',
+                      size: 14,
+                      weight: FontWeight.w500,
+                    ),
+                  ],
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // TODO: Add ForgotPassword route to GoRouter
+                    // AppNavigation.pushToForgotPassword(context);
+                  },
+                  child: const MyText(
+                    text: 'Forgot Password?',
                     size: 14,
                     weight: FontWeight.w500,
                   ),
-                ],
-              ),
-              GestureDetector(
-                onTap: () {
-                  // TODO: Add ForgotPassword route to GoRouter
-                  // AppNavigation.pushToForgotPassword(context);
-                },
-                child: const MyText(
-                  text: 'Forgot Password?',
-                  size: 14,
-                  weight: FontWeight.w500,
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: AppSizes.HEIGHT_30),
+              ],
+            ),
+            SizedBox(height: AppSizes.HEIGHT_30),
 
-          MyButton(
-            buttonText: 'Sign In',
-            onTap: authState.isLoading ? () {} : _handleLogin,
-            isDisabled: authState.isLoading,
-            child: authState.isLoading
-                ? const CircularProgressIndicator(color: Colors.white)
-                : null,
-          ),
-          SizedBox(height: AppSizes.HEIGHT_20),
+            MyButton(
+              buttonText: 'Sign In',
+              onTap: authState.isLoading ? () {} : _handleLogin,
+              isDisabled: authState.isLoading,
+              child: authState.isLoading
+                  ? const CircularProgressIndicator(color: Colors.white)
+                  : null,
+            ),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          const SocialLoginWidget(),
-          SizedBox(height: AppSizes.HEIGHT_20),
+            const SocialLoginWidget(),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              MyText(
-                text: "Don't have an account? ",
-                size: 12,
-                color: kTertiaryColor.withValues(alpha: 0.6),
-              ),
-              GestureDetector(
-                onTap: () => AppNavigation.pushToSignUp(context),
-                child: const MyText(
-                  text: 'Sign Up',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                MyText(
+                  text: "Don't have an account? ",
                   size: 12,
-                  decoration: TextDecoration.underline,
-                  color: kSecondaryColor,
-                  weight: FontWeight.w500,
-                  fontFamily: AppFonts.Fredoka,
+                  color: kTertiaryColor.withValues(alpha: 0.6),
                 ),
-              ),
-            ],
-          ),
-        ],
+                GestureDetector(
+                  onTap: () => AppNavigation.pushToSignUp(context),
+                  child: const MyText(
+                    text: 'Sign Up',
+                    size: 12,
+                    decoration: TextDecoration.underline,
+                    // color: kSecondaryColor,
+                    weight: FontWeight.w500,
+                    fontFamily: AppFonts.Fredoka,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
