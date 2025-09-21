@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shorebird_code_push/shorebird_code_push.dart';
 
 import 'app.dart';
 import 'core/env/env.dart';
 import 'core/logger/sentry_logger.dart';
+import 'core/providers/shared_prefs_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +19,9 @@ Future<void> main() async {
   log("env from dart custom env came out to be: $env");
 
   Env.setEnv(env.isNotEmpty ? env : EnvType.prod);
+
+  // Initialize SharedPreferences
+  final sharedPreferences = await SharedPreferences.getInstance();
 
   // Get the current patch number. This will be null if no patch is installed.
   final patch = await ShorebirdUpdater().readCurrentPatch();
@@ -37,7 +42,14 @@ Future<void> main() async {
         scope.setTag('shorebird_patch_number', '${patch.number}');
       });
     }
-    return runApp(ProviderScope(child: const MyApp()));
+    return runApp(
+      ProviderScope(
+        overrides: [
+          sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        ],
+        child: const MyApp(),
+      ),
+    );
   });
 
 
