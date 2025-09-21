@@ -56,9 +56,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            colorScheme: Theme.of(context).colorScheme.copyWith(
-              primary: kTertiaryColor,
-            ),
+            colorScheme: Theme.of(context).colorScheme.copyWith(primary: kTertiaryColor),
           ),
           child: child!,
         );
@@ -131,25 +129,21 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               subTitle: 'Sign up to get started',
             ),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             MyTextField(
               controller: _firstNameController,
               hintText: 'First Name',
               validator: (value) => Validators.validateName(value, fieldName: 'First Name'),
             ),
-
             MyTextField(
               controller: _lastNameController,
               hintText: 'Last Name',
               validator: (value) => Validators.validateName(value, fieldName: 'Last Name'),
             ),
-
             MyTextField(
               controller: _emailController,
               hintText: 'Email',
               validator: Validators.validateEmail,
             ),
-
             MyTextField(
               controller: _dobController,
               hintText: 'Date of Birth',
@@ -161,9 +155,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 children: [Image.asset(Assets.imagesCalendar, height: 18)],
               ),
             ),
-
             PhoneField(controller: _phoneController),
-
             MyTextField(
               controller: _passwordController,
               hintText: 'Password',
@@ -174,7 +166,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 children: [Image.asset(Assets.imagesVisibility, height: 20)],
               ),
             ),
-
             MyTextField(
               controller: _confirmPasswordController,
               hintText: 'Confirm Password',
@@ -186,7 +177,6 @@ class _SignupFormState extends ConsumerState<SignupForm> {
                 children: [Image.asset(Assets.imagesVisibility, height: 20)],
               ),
             ),
-
             Row(
               children: [
                 CustomCheckBox(
@@ -207,20 +197,24 @@ class _SignupFormState extends ConsumerState<SignupForm> {
               ],
             ),
             SizedBox(height: AppSizes.HEIGHT_30),
-
             MyButton(
               buttonText: 'Register',
+              width: MediaQuery.of(context).size.width,
               onTap: authState.isLoading ? () {} : _handleSignup,
               isDisabled: authState.isLoading,
               child: authState.isLoading
-                  ? const CircularProgressIndicator(color: Colors.white)
+                  ? const SizedBox(
+                      height: 25,
+                      width: 25,
+                      child: Center(
+                        child: CircularProgressIndicator(color: Colors.white),
+                      ),
+                    )
                   : null,
             ),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             const SocialLoginWidget(),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
