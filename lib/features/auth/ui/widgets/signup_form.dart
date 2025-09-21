@@ -87,115 +87,117 @@ class _SignupFormState extends ConsumerState<SignupForm> {
 
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          const AuthHeading(
-            title: 'Create Account',
-            subTitle: 'Sign up to get started',
-          ),
-          SizedBox(height: AppSizes.HEIGHT_20),
-
-          MyTextField(
-            controller: _firstNameController,
-            hintText: 'First Name',
-          ),
-
-          MyTextField(
-            controller: _lastNameController,
-            hintText: 'Last Name',
-          ),
-
-
-          MyTextField(
-            controller: _emailController,
-            hintText: 'Email',
-          ),
-
-          MyTextField(
-            hintText: '18/03/2024',
-            suffix: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Image.asset(Assets.imagesCalendar, height: 18)],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const AuthHeading(
+              title: 'Create Account',
+              subTitle: 'Sign up to get started',
             ),
-          ),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          PhoneField(),
-
-          MyTextField(
-            controller: _passwordController,
-            hintText: 'Password',
-            isObSecure: true,
-            suffix: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Image.asset(Assets.imagesVisibility, height: 20)],
+            MyTextField(
+              controller: _firstNameController,
+              hintText: 'First Name',
             ),
-          ),
 
-          MyTextField(
-            controller: _confirmPasswordController,
-            hintText: 'Confirm Password',
-            isObSecure: true,
-            marginBottom: 15,
-            suffix: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [Image.asset(Assets.imagesVisibility, height: 20)],
+            MyTextField(
+              controller: _lastNameController,
+              hintText: 'Last Name',
             ),
-          ),
 
-          Row(
-            children: [
-              CustomCheckBox(
-                isActive: _acceptTerms,
-                onTap: () {
-                  setState(() {
-                    _acceptTerms = !_acceptTerms;
-                  });
-                },
+
+            MyTextField(
+              controller: _emailController,
+              hintText: 'Email',
+            ),
+
+            MyTextField(
+              hintText: '18/03/2024',
+              suffix: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Image.asset(Assets.imagesCalendar, height: 18)],
               ),
-              SizedBox(width: 8),
-              const Expanded(
-                child: MyText(
-                  text: 'I accept the Terms and Conditions',
-                  size: 14,
+            ),
+
+            PhoneField(),
+
+            MyTextField(
+              controller: _passwordController,
+              hintText: 'Password',
+              isObSecure: true,
+              suffix: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              ),
+            ),
+
+            MyTextField(
+              controller: _confirmPasswordController,
+              hintText: 'Confirm Password',
+              isObSecure: true,
+              marginBottom: 15,
+              suffix: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              ),
+            ),
+
+            Row(
+              children: [
+                CustomCheckBox(
+                  isActive: _acceptTerms,
+                  onTap: () {
+                    setState(() {
+                      _acceptTerms = !_acceptTerms;
+                    });
+                  },
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: AppSizes.HEIGHT_30),
+                SizedBox(width: 8),
+                const Expanded(
+                  child: MyText(
+                    text: 'I accept the Terms and Conditions',
+                    size: 14,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: AppSizes.HEIGHT_30),
 
-          MyButton(
-            buttonText: 'Register',
-            onTap: authState.isLoading ? () {} : _handleSignup,
-            isDisabled: authState.isLoading,
-            child: authState.isLoading
-                ? const CircularProgressIndicator(color: Colors.white)
-                : null,
-          ),
-          SizedBox(height: AppSizes.HEIGHT_20),
+            MyButton(
+              buttonText: 'Register',
+              onTap: authState.isLoading ? () {} : _handleSignup,
+              isDisabled: authState.isLoading,
+              child: authState.isLoading
+                  ? const CircularProgressIndicator(color: Colors.white)
+                  : null,
+            ),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          const SocialLoginWidget(),
-          SizedBox(height: AppSizes.HEIGHT_20),
+            const SocialLoginWidget(),
+            SizedBox(height: AppSizes.HEIGHT_20),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const MyText(
-                text: "Already have an account? ",
-                size: 12,
-              ),
-              GestureDetector(
-                onTap: () => AppNavigation.pushToLogin(context),
-                child: const MyText(
-                  text: 'Login',
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const MyText(
+                  text: "Already have an account? ",
                   size: 12,
-                  decoration: TextDecoration.underline,
-                  fontFamily: AppFonts.Fredoka,
-                  weight: FontWeight.w500,
                 ),
-              ),
-            ],
-          ),
-        ],
+                GestureDetector(
+                  onTap: () => AppNavigation.pushToLogin(context),
+                  child: const MyText(
+                    text: 'Login',
+                    size: 12,
+                    decoration: TextDecoration.underline,
+                    fontFamily: AppFonts.Fredoka,
+                    weight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
