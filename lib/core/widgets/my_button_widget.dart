@@ -8,10 +8,11 @@ import 'my_text_widget.dart';
 // ignore: must_be_immutable
 class MyButton extends StatelessWidget {
   const MyButton({
-    Key? key,
+    super.key,
     required this.buttonText,
     required this.onTap,
     this.height,
+    this.width,
     this.textSize,
     this.weight,
     this.radius,
@@ -20,11 +21,12 @@ class MyButton extends StatelessWidget {
     this.textColor,
     this.isDisabled = false,
     this.haveShadow = true,
-  }) : super(key: key);
+  });
 
   final String buttonText;
   final VoidCallback onTap;
   final double? height;
+  final double? width;
   final double? textSize;
   final FontWeight? weight;
   final double? radius;
@@ -38,6 +40,7 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height ?? 48,
+      width: width ?? MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         boxShadow: (isDisabled || !haveShadow)
             ? null
