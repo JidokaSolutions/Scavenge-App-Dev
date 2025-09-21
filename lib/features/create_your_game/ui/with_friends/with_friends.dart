@@ -210,7 +210,8 @@ class _MyProgressState extends State<_MyProgress> {
                   haveShadow: false,
                   buttonText: 'View Team Progress',
                   onTap: () {
-                    Get.to(() => ViewTeamProgress());
+                    // TODO: Add ViewTeamProgress route to GoRouter
+                    // AppNavigation.pushToViewTeamProgress(context);
                   },
                 ),
               ),
@@ -285,7 +286,8 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Task detail',
                                   onTap: () {
-                                    Get.to(() => GameTaskDetails());
+                                    // TODO: Add GameTaskDetails route to GoRouter
+                                    // AppNavigation.pushToGameTaskDetails(context);
                                   },
                                 ),
                               ),
@@ -476,7 +478,7 @@ class _OpponentProgress extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // Get.to(() => TeamMemberDetails());
+                // TODO: Add TeamMemberDetails route navigation here
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -658,7 +660,8 @@ class _SubmitYourEvidence extends StatelessWidget {
                       buttonText: '',
                       onTap: () {
                         AppNavigation.pop(context);
-                        Get.to(() => UploadEvidence());
+                        // TODO: Add UploadEvidence route to GoRouter
+                        // AppNavigation.pushToUploadEvidence(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -755,9 +758,11 @@ class _EndHunt extends StatelessWidget {
                         AppNavigation.pop(context);
                         if (createGameController.selectedGameType ==
                             GameType.timeBase)
-                          Get.to(() => TimeBaseVoting());
+                          // TODO: Add TimeBaseVoting route to GoRouter
+                          // AppNavigation.pushToTimeBaseVoting(context);
                         else
-                          Get.to(() => JudgeBaseVoting());
+                          // TODO: Add JudgeBaseVoting route to GoRouter
+                          // AppNavigation.pushToJudgeBaseVoting(context);
                       },
                     ),
                   ],

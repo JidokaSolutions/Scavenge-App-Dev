@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -30,7 +29,8 @@ class ViewTeamProgress extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Get.to(() => TeamMemberDetails());
+                // TODO: Add TeamMemberDetails route to GoRouter
+                // AppNavigation.pushToTeamMemberDetails(context);
               },
               child: Container(
                 padding: const EdgeInsets.all(12),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
@@ -180,7 +179,8 @@ class UploadEvidence extends StatelessWidget {
               MyButton(
                 buttonText: 'Check Accuracy',
                 onTap: () {
-                  Get.to(() => CheckEvidenceAccuracy());
+                  // TODO: Add CheckEvidenceAccuracy route to GoRouter
+                  // AppNavigation.pushToCheckEvidenceAccuracy(context);
                 },
               ),
               MyText(
