@@ -13,14 +13,6 @@ final apiHandlerProvider = Provider<ApiHandler>((ref) {
     ),
   );
 
-  // Add auth interceptor that can access the auth provider
-  try {
-    dio.interceptors.add(AuthInterceptor(ref));
-  } catch (e) {
-    // Handle case where auth provider isn't ready yet
-    print('Auth interceptor not added: $e');
-  }
-
   return ApiHandler(dio);
 });
 
