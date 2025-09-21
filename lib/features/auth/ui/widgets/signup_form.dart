@@ -113,9 +113,16 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             backgroundColor: Colors.red,
           ),
         );
-      } else if (next.isAuthenticated) {
-        // Navigate to home screen
-        // Navigation handled by AuthWrapper
+      } else if (next.status == AuthStatus.registrationSuccess) {
+        // Show success message and navigate to login
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Account created successfully! Please login to continue.'),
+            backgroundColor: Colors.green,
+          ),
+        );
+        // Navigate to login screen (replace current route)
+        AppNavigation.goToLogin(context);
       }
     });
 
