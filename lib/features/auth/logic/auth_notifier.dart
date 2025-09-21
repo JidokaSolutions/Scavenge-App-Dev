@@ -128,24 +128,24 @@ class AuthNotifier extends StateNotifier<AuthState> {
     return _prefs.getString(_accessTokenKey);
   }
 
-  Future<bool> refreshAccessToken() async {
-    try {
-      final refreshToken = _prefs.getString(_refreshTokenKey);
-      if (refreshToken == null) return false;
-
-      final refreshRequest = RefreshTokenRequest(refreshToken: refreshToken);
-      final refreshResponse = await _authApiService.refreshToken(refreshRequest);
-
-      await _prefs.setString(_accessTokenKey, refreshResponse.accessToken);
-      await _prefs.setString(_refreshTokenKey, refreshResponse.refreshToken);
-
-      return true;
-    } catch (e) {
-      logger.error('Token refresh error: $e');
-      await logout(); // Force logout if refresh fails
-      return false;
-    }
-  }
+  // Future<bool> refreshAccessToken() async {
+  //   try {
+  //     final refreshToken = _prefs.getString(_refreshTokenKey);
+  //     if (refreshToken == null) return false;
+  //
+  //     final refreshRequest = RefreshTokenRequest(refreshToken: refreshToken);
+  //     final refreshResponse = await _authApiService.refreshToken(refreshRequest);
+  //
+  //     await _prefs.setString(_accessTokenKey, refreshResponse.accessToken);
+  //     await _prefs.setString(_refreshTokenKey, refreshResponse.refreshToken);
+  //
+  //     return true;
+  //   } catch (e) {
+  //     logger.error('Token refresh error: $e');
+  //     await logout(); // Force logout if refresh fails
+  //     return false;
+  //   }
+  // }
 
   Future<void> _storeAuthData(AuthResponse authResponse) async {
     await _prefs.setString(_accessTokenKey, authResponse.accessToken);
