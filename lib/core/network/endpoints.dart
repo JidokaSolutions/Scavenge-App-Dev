@@ -1,19 +1,19 @@
 class Endpoints {
-  static const login = "/user-login";
-  static const register = "/user-register";
-  static const userInfo = "/user-info";
-  static const userPoints = "/userapp/user_points";
+  // Authentication
+  static const login = "/auth/login";
+  static const register = "/auth/register";
+  // static const refreshToken = "/auth/refresh";
+  // static const logout = "/auth/logout";
 
-  // Orders
-  static const myOrders = "/user-order-list";
-  static const placeOrder = "/place-order";
-  static const orderView = "/order-view";
+  // User Management
+  static const users = "/users";
+  static const userById = "/users/{user_id}";
 
-  // Subscriptions
-  static const subscriptionOffers = "/offerapi/offers-list";
-  static const createSubscription = "/offerapi/subscribe-offer-create";
+  // Friends Management
+  static const userFriends = "/users/{user_id}/friends";
+  static const addRemoveFriend = "/users/{user_id}/friends/{friend_id}";
 
-  // Giftcards
-  static const giftCards = "/gift-cards";
-  static const buyGiftCard = "/buy_giftcard";
+  // Hunt Management
+  static const hunts = "/hunts";
+  static const huntById = "/hunts/{hunt_id}";
 }
