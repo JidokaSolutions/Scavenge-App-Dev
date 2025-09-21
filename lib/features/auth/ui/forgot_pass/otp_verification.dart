@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
@@ -12,6 +12,7 @@ import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
+import 'create_new_pass.dart';
 
 class OTPVerification extends StatelessWidget {
   const OTPVerification({super.key});
@@ -52,7 +53,7 @@ class _OTPVerification extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    AppNavigation.pop(context);
+                    Get.back();
                   },
                   child: Image.asset(Assets.imagesArrowBack, height: 20, width: 20),
                 ),
@@ -75,8 +76,7 @@ class _OTPVerification extends StatelessWidget {
             MyButton(
               buttonText: 'Verify',
               onTap: () {
-                // TODO: Add CreateNewPassword route to GoRouter
-                // AppNavigation.pushToCreateNewPassword(context);
+                Get.to(() => CreateNewPassword());
               },
             ),
             SizedBox(height: 24),

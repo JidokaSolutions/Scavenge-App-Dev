@@ -145,8 +145,8 @@ class _JudgeBaseVotingState extends State<JudgeBaseVoting> {
                                   topRight: Radius.circular(12),
                                 ),
                                 child: CommonImageView(
-                                  height: Get.height,
-                                  width: Get.width,
+                                  height: double.infinity,
+                                  width: double.infinity,
                                   radius: 0,
                                   url: dummyImg,
                                   fit: BoxFit.cover,
@@ -274,8 +274,8 @@ class _JudgeBaseVotingState extends State<JudgeBaseVoting> {
                                   topRight: Radius.circular(12),
                                 ),
                                 child: CommonImageView(
-                                  height: Get.height,
-                                  width: Get.width,
+                                  height: double.infinity,
+                                  width: double.infinity,
                                   radius: 0,
                                   url: dummyImg,
                                   fit: BoxFit.cover,
@@ -403,8 +403,8 @@ class _JudgeBaseVotingState extends State<JudgeBaseVoting> {
                                   topRight: Radius.circular(12),
                                 ),
                                 child: CommonImageView(
-                                  height: Get.height,
-                                  width: Get.width,
+                                  height: double.infinity,
+                                  width: double.infinity,
                                   radius: 0,
                                   url: dummyImg,
                                   fit: BoxFit.cover,

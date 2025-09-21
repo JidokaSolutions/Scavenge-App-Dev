@@ -327,8 +327,8 @@ class _TeamCard extends StatelessWidget {
                         topRight: Radius.circular(12),
                       ),
                       child: CommonImageView(
-                        height: Get.height,
-                        width: Get.width,
+                        height: double.infinity,
+                        width: double.infinity,
                         radius: 0,
                         url: image,
                         fit: BoxFit.cover,

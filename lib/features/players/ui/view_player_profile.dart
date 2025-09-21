@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
@@ -217,8 +216,8 @@ class ViewPlayerProfile extends StatelessWidget {
                         itemCount: 8,
                         itemBuilder: (BuildContext context, int index) {
                           return CommonImageView(
-                            height: Get.height,
-                            width: Get.width,
+                            height: double.infinity, // MediaQuery.of(context).size.height,
+                            width: double.infinity,
                             radius: 10,
                             url: dummyImg,
                             fit: BoxFit.cover,
