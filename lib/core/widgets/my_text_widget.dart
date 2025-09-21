@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
 import '../constants/app_fonts.dart';
 
-// ignore: must_be_immutable
 class MyText extends StatelessWidget {
-  // ignore: prefer_typing_uninitialized_variables
   final String text;
   final String? fontFamily;
   final TextAlign? textAlign;
@@ -26,8 +24,8 @@ class MyText extends StatelessWidget {
   final double? letterSpacing;
   final TextStyle? textStyle;
 
-  MyText({
-    Key? key,
+  const MyText({
+    super.key,
     required this.text,
     this.size,
     this.lineHeight,
@@ -46,7 +44,7 @@ class MyText extends StatelessWidget {
     this.onTap,
     this.fontStyle,
     this.textStyle,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

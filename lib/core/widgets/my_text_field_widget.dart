@@ -9,8 +9,8 @@ import 'my_text_widget.dart';
 
 // ignore: must_be_immutable
 class MyTextField extends StatelessWidget {
-  MyTextField({
-    Key? key,
+  const MyTextField({
+    super.key,
     this.controller,
     this.hintText,
     this.labelText,
@@ -24,17 +24,17 @@ class MyTextField extends StatelessWidget {
     this.isReadOnly,
     this.onTap,
     this.fillColor,
-  }) : super(key: key);
+  });
 
-  String? labelText, hintText;
-  TextEditingController? controller;
-  ValueChanged<String>? onChanged;
-  bool? isObSecure, isReadOnly;
-  double? marginBottom;
-  int? maxLines;
-  double? labelSize;
-  Color? fillColor;
-  Widget? prefix, suffix;
+  final String? labelText, hintText;
+  final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
+  final bool? isObSecure, isReadOnly;
+  final double? marginBottom;
+  final int? maxLines;
+  final double? labelSize;
+  final Color? fillColor;
+  final Widget? prefix, suffix;
   final VoidCallback? onTap;
 
   @override
