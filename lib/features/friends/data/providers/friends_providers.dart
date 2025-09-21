@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:scavenge_hunt/features/friends/data/models/friend_models.dart';
 import '../../../../core/network/api_client.dart';
 import '../../../auth/data/models/user_models.dart';
 import '../datasources/friends_api_service.dart';
@@ -18,7 +19,7 @@ final removeFriendProvider = FutureProvider.autoDispose.family<void, ({String us
   return friendsApiService.removeFriend(params.userId, params.friendId);
 });
 
-final getUserFriendsProvider = FutureProvider.autoDispose.family<List<UserOut>, String>((ref, userId) async {
+final getUserFriendsProvider = FutureProvider.autoDispose.family<List<FriendOut>, String>((ref, userId) async {
   final friendsApiService = ref.read(friendsApiServiceProvider);
   return friendsApiService.getUserFriends(userId);
 });
