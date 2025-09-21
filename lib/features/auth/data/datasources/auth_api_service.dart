@@ -24,15 +24,16 @@ class AuthApiService {
     );
   }
 
-  Future<RefreshTokenResponse> refreshToken(RefreshTokenRequest refreshRequest) async {
-    return _apiHandler.post<RefreshTokenResponse>(
-      Endpoints.refreshToken,
-      body: refreshRequest.toJson(),
-      parser: (data) => RefreshTokenResponse.fromJson(data),
-    );
-  }
+  // Future<RefreshTokenResponse> refreshToken(RefreshTokenRequest refreshRequest) async {
+  //   return _apiHandler.post<RefreshTokenResponse>(
+  //     Endpoints.refreshToken,
+  //     body: refreshRequest.toJson(),
+  //     parser: (data) => RefreshTokenResponse.fromJson(data),
+  //   );
+  // }
 
   Future<void> logout() async {
-    return _apiHandler.post<void>(Endpoints.logout);
+    return;
+    // return _apiHandler.post<void>(Endpoints.logout);
   }
 }
