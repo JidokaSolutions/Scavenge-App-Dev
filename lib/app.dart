@@ -23,6 +23,7 @@ class MyApp extends ConsumerWidget {
 
     return MaterialApp.router(
       routerConfig: router,
+      debugShowCheckedModeBanner: false,
       builder: (context, child) {
         return ForceUpdateWidget(
           navigatorKey: _rootNavigatorKey,
