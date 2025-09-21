@@ -17,6 +17,7 @@ class AuthWrapper extends ConsumerWidget {
       AuthStatus.loading => const _LoadingScreen(),
       AuthStatus.authenticated => const LandingPage(),
       AuthStatus.unauthenticated => const Login(),
+      AuthStatus.registrationSuccess => const Login(),
       AuthStatus.error => const Login(),
     };
   }
