@@ -1,7 +1,7 @@
 class Endpoints {
   // Authentication
   static const login = "/auth/login";
-  static const register = "/auth/register";
+  static const register = "/users"; // User registration uses POST /users
   // static const refreshToken = "/auth/refresh";
   // static const logout = "/auth/logout";
 
