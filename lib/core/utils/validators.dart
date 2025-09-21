@@ -1,11 +1,12 @@
 class Validators {
   static String? validateEmail(String? value) {
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return 'Email is required';
     }
 
+    final trimmedValue = value.trim();
     final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
-    if (!emailRegex.hasMatch(value)) {
+    if (!emailRegex.hasMatch(trimmedValue)) {
       return 'Please enter a valid email address';
     }
 
@@ -37,20 +38,21 @@ class Validators {
   }
 
   static String? validateName(String? value, {String fieldName = 'Name'}) {
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return '$fieldName is required';
     }
 
-    if (value.trim().length < 2) {
+    final trimmedValue = value.trim();
+    if (trimmedValue.length < 2) {
       return '$fieldName must be at least 2 characters long';
     }
 
-    if (value.trim().length > 50) {
+    if (trimmedValue.length > 50) {
       return '$fieldName must be less than 50 characters';
     }
 
     final nameRegex = RegExp(r'^[a-zA-Z\s-]+$');
-    if (!nameRegex.hasMatch(value.trim())) {
+    if (!nameRegex.hasMatch(trimmedValue)) {
       return '$fieldName can only contain letters, spaces, and hyphens';
     }
 
@@ -58,12 +60,12 @@ class Validators {
   }
 
   static String? validatePhone(String? value) {
-    if (value == null || value.isEmpty) {
+    if (value == null || value.trim().isEmpty) {
       return null; // Phone is optional
     }
 
     // Remove all non-digit characters for validation
-    final digitsOnly = value.replaceAll(RegExp(r'\D'), '');
+    final digitsOnly = value.trim().replaceAll(RegExp(r'\D'), '');
 
     if (digitsOnly.length < 10) {
       return 'Phone number must be at least 10 digits';
