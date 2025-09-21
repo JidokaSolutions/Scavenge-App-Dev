@@ -34,6 +34,8 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   final _dobController = TextEditingController();
   DateTime? _selectedDate;
   bool _acceptTerms = false;
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
 
   @override
   void dispose() {
@@ -166,22 +168,48 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             MyTextField(
               controller: _passwordController,
               hintText: 'Password',
-              isObSecure: true,
+              isObSecure: !_isPasswordVisible,
               validator: Validators.validatePassword,
-              suffix: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              suffix: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: kTertiaryColor,
+                      size: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
             MyTextField(
               controller: _confirmPasswordController,
               hintText: 'Confirm Password',
-              isObSecure: true,
+              isObSecure: !_isConfirmPasswordVisible,
               marginBottom: 15,
               validator: (value) => Validators.validateConfirmPassword(value, _passwordController.text),
-              suffix: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              suffix: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      _isConfirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: kTertiaryColor,
+                      size: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
             Row(

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_fonts.dart';
-import '../../../../core/constants/app_images.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/routes/app_navigation.dart';
 import '../../../../core/widgets/custom_check_box_widget.dart';
@@ -27,6 +26,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _rememberMe = false;
+  bool _isPasswordVisible = false;
 
   @override
   void dispose() {
@@ -74,23 +74,33 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               subTitle: 'Sign in to continue',
             ),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             MyTextField(
               controller: _emailController,
               hintText: 'Email',
             ),
-
             MyTextField(
               controller: _passwordController,
               hintText: 'Password',
-              isObSecure: true,
+              isObSecure: !_isPasswordVisible,
               marginBottom: 12,
-              suffix: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Image.asset(Assets.imagesVisibility, height: 20)],
+              suffix: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isPasswordVisible = !_isPasswordVisible;
+                  });
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                      color: kTertiaryColor,
+                      size: 20,
+                    ),
+                  ],
+                ),
               ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -126,20 +136,15 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               ],
             ),
             SizedBox(height: AppSizes.HEIGHT_30),
-
             MyButton(
               buttonText: 'Sign In',
               onTap: authState.isLoading ? () {} : _handleLogin,
               isDisabled: authState.isLoading,
-              child: authState.isLoading
-                  ? const CircularProgressIndicator(color: Colors.white)
-                  : null,
+              child: authState.isLoading ? const CircularProgressIndicator(color: Colors.white) : null,
             ),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             const SocialLoginWidget(),
             SizedBox(height: AppSizes.HEIGHT_20),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
