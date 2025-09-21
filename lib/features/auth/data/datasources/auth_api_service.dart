@@ -16,11 +16,11 @@ class AuthApiService {
     );
   }
 
-  Future<AuthResponse> register(RegisterRequest registerRequest) async {
-    return _apiHandler.post<AuthResponse>(
+  Future<UserOut> register(RegisterRequest registerRequest) async {
+    return _apiHandler.post<UserOut>(
       Endpoints.register,
       body: registerRequest.toJson(),
-      parser: (data) => AuthResponse.fromJson(data),
+      parser: (data) => UserOut.fromJson(data),
     );
   }
 
