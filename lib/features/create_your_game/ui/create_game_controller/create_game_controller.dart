@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
-// TODO: Convert this GetX controller to Riverpod provider
-import 'package:get/get.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/choose_game_type.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/choose_play_mode.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/choose_race_type.dart';
@@ -10,75 +9,75 @@ enum GameType { timeBase, judging, combination }
 
 enum PlayMode { solo, withFriends }
 
-class CreateGameController extends GetxController {
-  // TODO: Replace with Riverpod provider reference
-  static CreateGameController instance = Get.find<CreateGameController>();
+// Riverpod providers for game creation state
+final selectedGameTypeProvider = StateProvider<GameType?>((ref) => null);
+final selectedPlayModeProvider = StateProvider<PlayMode?>((ref) => null);
+final currentStepProvider = StateProvider<int>((ref) => 0);
 
-  final Rx<GameType?> selectedGameType = Rx<GameType?>(null);
+class CreateGameController {
+  static const instance = CreateGameController._();
 
-  void selectGameType(GameType type) {
-    switch (type) {
-      case GameType.timeBase:
-        selectedGameType.value = GameType.timeBase;
-        break;
-      case GameType.judging:
-        selectedGameType.value = GameType.judging;
-        break;
-      case GameType.combination:
-        selectedGameType.value = GameType.combination;
-        break;
-    }
-  }
+  const CreateGameController._();
 
-  final Rx<PlayMode?> selectedPlayMode = Rx<PlayMode?>(null);
-
-  void selectPlayMode(PlayMode mode) {
-    switch (mode) {
-      case PlayMode.solo:
-        selectedPlayMode.value = PlayMode.solo;
-        break;
-      case PlayMode.withFriends:
-        selectedPlayMode.value = PlayMode.withFriends;
-        break;
-    }
-  }
-
-  final List<String> withFriendsLabels = [
+  static const List<String> withFriendsLabels = [
     'Play Mode',
     'Race Type',
     'Game Type',
     'Invite Friend',
   ];
-  final List<String> soloLabels = ['Play Mode', 'Race Type', 'Game Type'];
+  static const List<String> soloLabels = ['Play Mode', 'Race Type', 'Game Type'];
 
-  RxList<String> get currentLabels => RxList<String>.from(
-    selectedPlayMode.value == PlayMode.solo ? soloLabels : withFriendsLabels,
-  );
-
-  final List<Widget> stepChildren = [
+  static const List<Widget> stepChildren = [
     ChoosePlayMode(),
     ChooseRaceType(),
     ChooseGameType(),
     InviteFriends(),
   ];
+}
 
-  final RxInt currentStep = 0.obs;
+// Provider for getting current labels based on play mode
+final currentLabelsProvider = Provider<List<String>>((ref) {
+  final playMode = ref.watch(selectedPlayModeProvider);
+  return playMode == PlayMode.solo
+      ? CreateGameController.soloLabels
+      : CreateGameController.withFriendsLabels;
+});
+
+// Provider for navigation actions
+final createGameActionsProvider = Provider<CreateGameActions>((ref) {
+  return CreateGameActions(ref);
+});
+
+class CreateGameActions {
+  final Ref ref;
+
+  CreateGameActions(this.ref);
+
+  void selectGameType(GameType type) {
+    ref.read(selectedGameTypeProvider.notifier).state = type;
+  }
+
+  void selectPlayMode(PlayMode mode) {
+    ref.read(selectedPlayModeProvider.notifier).state = mode;
+  }
 
   void nextStep() {
-    if (currentStep.value <
-        ((selectedPlayMode.value == PlayMode.solo)
-            ? soloLabels.length - 1
-            : withFriendsLabels.length - 1)) {
-      currentStep.value++;
+    final currentStep = ref.read(currentStepProvider);
+    final playMode = ref.read(selectedPlayModeProvider);
+    final maxStep = playMode == PlayMode.solo
+        ? CreateGameController.soloLabels.length - 1
+        : CreateGameController.withFriendsLabels.length - 1;
+
+    if (currentStep < maxStep) {
+      ref.read(currentStepProvider.notifier).state = currentStep + 1;
     }
   }
 
   void previousStep() {
-    if (currentStep.value > 0) {
-      currentStep.value--;
-    } else {
-      // TODO: Replace with AppNavigation.pop(context) when converting to Riverpod
-      Get.back();
+    final currentStep = ref.read(currentStepProvider);
+    if (currentStep > 0) {
+      ref.read(currentStepProvider.notifier).state = currentStep - 1;
     }
+    // Note: Navigation back handled in UI layer
   }
 }
