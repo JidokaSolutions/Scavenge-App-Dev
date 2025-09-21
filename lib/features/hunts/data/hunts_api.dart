@@ -1,22 +1,47 @@
-// features/hunts/data/hunt_api.dart
-// import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../core/network/api_client.dart';
 import '../../../core/network/api_handler.dart';
-import 'models/hunt_model.dart';
+import '../../../core/network/endpoints.dart';
+import 'models/hunt_models.dart';
 
-// part 'hunts_api.g.dart';
+class HuntsApiService {
+  final ApiHandler _apiHandler;
 
-class HuntsApi {
-  final ApiHandler _client;
-  HuntsApi(this._client);
+  HuntsApiService(this._apiHandler);
 
-  Future<List<Hunt>> fetchHunts() {
-    return _client.get<List<Hunt>>('/hunts', parser: (data) => (data as List).map((e) => Hunt.fromJson(e)).toList());
+  Future<HuntOut> createHunt(HuntCreate huntCreate) async {
+    return _apiHandler.post<HuntOut>(
+      Endpoints.hunts,
+      body: huntCreate.toJson(),
+      parser: (data) => HuntOut.fromJson(data),
+    );
+  }
+
+  Future<List<HuntOut>> getHunts({int limit = 50, int offset = 0}) async {
+    return _apiHandler.get<List<HuntOut>>(
+      Endpoints.hunts,
+      queryParameters: {'limit': limit, 'offset': offset},
+      parser: (data) => (data as List).map((e) => HuntOut.fromJson(e)).toList(),
+    );
+  }
+
+  Future<HuntOut> getHuntById(String huntId) async {
+    final endpoint = Endpoints.huntById.replaceAll('{hunt_id}', huntId);
+    return _apiHandler.get<HuntOut>(
+      endpoint,
+      parser: (data) => HuntOut.fromJson(data),
+    );
+  }
+
+  Future<HuntOut> updateHunt(String huntId, HuntUpdate huntUpdate) async {
+    final endpoint = Endpoints.huntById.replaceAll('{hunt_id}', huntId);
+    return _apiHandler.patch<HuntOut>(
+      endpoint,
+      body: huntUpdate.toJson(),
+      parser: (data) => HuntOut.fromJson(data),
+    );
+  }
+
+  Future<void> deleteHunt(String huntId) async {
+    final endpoint = Endpoints.huntById.replaceAll('{hunt_id}', huntId);
+    return _apiHandler.delete<void>(endpoint);
   }
 }
-
-// @riverpod
-// HuntsApi huntApi(Ref ref) {
-//   final client = ref.watch(apiHandlerProvider);
-//   return HuntsApi(client);
-// }
