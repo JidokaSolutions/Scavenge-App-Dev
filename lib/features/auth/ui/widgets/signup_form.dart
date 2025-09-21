@@ -30,6 +30,8 @@ class _SignupFormState extends ConsumerState<SignupForm> {
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final _dobController = TextEditingController();
+  DateTime? _selectedDate;
   bool _acceptTerms = false;
 
   @override
@@ -40,7 +42,39 @@ class _SignupFormState extends ConsumerState<SignupForm> {
     _phoneController.dispose();
     _passwordController.dispose();
     _confirmPasswordController.dispose();
+    _dobController.dispose();
     super.dispose();
+  }
+
+  Future<void> _selectDate() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: _selectedDate ?? DateTime.now().subtract(const Duration(days: 365 * 18)),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: Theme.of(context).colorScheme.copyWith(
+              primary: kTertiaryColor,
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (picked != null && picked != _selectedDate) {
+      setState(() {
+        _selectedDate = picked;
+        _dobController.text = "${picked.day.toString().padLeft(2, '0')}/${picked.month.toString().padLeft(2, '0')}/${picked.year}";
+      });
+    }
+  }
+
+  String? _formatDateForApi(DateTime? date) {
+    if (date == null) return null;
+    return "${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}";
   }
 
   void _handleSignup() async {
@@ -61,6 +95,7 @@ class _SignupFormState extends ConsumerState<SignupForm> {
         lastname: _lastNameController.text.trim(),
         email: _emailController.text.trim(),
         password: _passwordController.text,
+        dob: _formatDateForApi(_selectedDate),
         phone: _phoneController.text.trim().isEmpty ? null : _phoneController.text.trim(),
       );
     }
@@ -113,14 +148,17 @@ class _SignupFormState extends ConsumerState<SignupForm> {
             ),
 
             MyTextField(
-              hintText: '18/03/2024',
+              controller: _dobController,
+              hintText: 'Date of Birth',
+              isReadOnly: true,
+              onTap: _selectDate,
               suffix: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [Image.asset(Assets.imagesCalendar, height: 18)],
               ),
             ),
 
-            PhoneField(),
+            PhoneField(controller: _phoneController),
 
             MyTextField(
               controller: _passwordController,
