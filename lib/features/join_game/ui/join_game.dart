@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
@@ -46,7 +46,10 @@ class JoinGame extends StatelessWidget {
                     MyButton(
                       buttonText: 'Join',
                       onTap: () {
-                        Get.dialog(_JoinHunt());
+                        showDialog(
+                          context: context,
+                          builder: (context) => _JoinHunt(),
+                        );
                       },
                     ),
                   ],
@@ -103,7 +106,10 @@ class JoinGame extends StatelessWidget {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      Get.dialog(_JoinHunt());
+                                      showDialog(
+                          context: context,
+                          builder: (context) => _JoinHunt(),
+                        );
                                     },
                                     child: Container(
                                       width: 83,
@@ -218,14 +224,14 @@ class _JoinHunt extends StatelessWidget {
                     MyButton(
                       buttonText: 'Confirm & Join',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                     ),
                     SizedBox(height: 16),
                     MyBorderButton(
                       buttonText: 'Cancel',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                     ),
                   ],

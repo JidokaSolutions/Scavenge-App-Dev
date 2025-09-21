@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+// TODO: Convert this GetX controller to Riverpod provider
 import 'package:get/get.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/choose_game_type.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/choose_play_mode.dart';
@@ -10,6 +11,7 @@ enum GameType { timeBase, judging, combination }
 enum PlayMode { solo, withFriends }
 
 class CreateGameController extends GetxController {
+  // TODO: Replace with Riverpod provider reference
   static CreateGameController instance = Get.find<CreateGameController>();
 
   final Rx<GameType?> selectedGameType = Rx<GameType?>(null);
@@ -75,6 +77,7 @@ class CreateGameController extends GetxController {
     if (currentStep.value > 0) {
       currentStep.value--;
     } else {
+      // TODO: Replace with AppNavigation.pop(context) when converting to Riverpod
       Get.back();
     }
   }

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -75,7 +75,9 @@ class _ChoosePlayModeState extends State<ChoosePlayMode> {
             onTap: () {
               if (createGameController.selectedPlayMode.value ==
                   PlayMode.solo) {
-                Get.dialog(
+                showDialog(
+                  context: context,
+                  builder: (context) =>
                   _StartAlone(
                     onStartGame: () {
                       createGameController.nextStep();
@@ -192,7 +194,7 @@ class _StartAlone extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -223,7 +225,7 @@ class _StartAlone extends StatelessWidget {
                     MyButton(
                       buttonText: 'Start Game',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         onStartGame();
                       },
                     ),

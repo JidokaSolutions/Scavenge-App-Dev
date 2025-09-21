@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -216,7 +216,7 @@ class CompletedHuntDetails extends StatelessWidget {
                                   weight: FontWeight.w400,
                                   buttonText: '3 More',
                                   onTap: () {
-                                    Get.to(() => TeamFlash());
+                                    AppNavigation.pushToTeamFlash(context);
                                   },
                                 ),
                               ),
@@ -289,7 +289,7 @@ class CompletedHuntDetails extends StatelessWidget {
                             haveShadow: false,
                             buttonText: 'View More',
                             onTap: () {
-                              Get.to(() => CompletedTasks());
+                              AppNavigation.pushToCompletedTasks(context);
                             },
                           ),
                         ),

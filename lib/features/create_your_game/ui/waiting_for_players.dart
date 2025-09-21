@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -275,7 +275,7 @@ class WaitingForPlayers extends StatelessWidget {
                             ],
                           ),
                           onTap: () {
-                            Get.to(() => ChatWithFriends());
+                            AppNavigation.pushToChatWithFriends(context);
                           },
                         ),
                       ),
@@ -363,7 +363,10 @@ class WaitingForPlayers extends StatelessWidget {
                     child: MyBorderButton(
                       buttonText: 'Leave Hunt',
                       onTap: () {
-                        Get.dialog(_LeaveHunt());
+                        showDialog(
+                          context: context,
+                          builder: (context) => _LeaveHunt(),
+                        );
                       },
                       textColor: kRedColor,
                     ),
@@ -373,7 +376,8 @@ class WaitingForPlayers extends StatelessWidget {
                     child: MyButton(
                       buttonText: 'Start Game',
                       onTap: () {
-                        Get.to(() => WithFriends());
+                        // TODO: Add WithFriends route to GoRouter
+                        // AppNavigation.pushToWithFriends(context);
                       },
                     ),
                   ),
@@ -427,7 +431,7 @@ class _LeaveHunt extends StatelessWidget {
                     MyButton(
                       buttonText: 'Stay in Hunt',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                       textSize: 16,
                     ),
@@ -436,8 +440,8 @@ class _LeaveHunt extends StatelessWidget {
                       textColor: kRedColor,
                       buttonText: 'Leave Hunt',
                       onTap: () {
-                        Get.back();
-                        Get.back();
+                        AppNavigation.pop(context);
+                        AppNavigation.pop(context);
                       },
                       textSize: 16,
                     ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -28,7 +28,7 @@ class CompletedHunts extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Get.to(() => CompletedHuntDetails());
+                AppNavigation.pushToCompletedHuntDetails(context, 'dummy-hunt-id');
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -157,7 +157,7 @@ class _ChatWithFriendsState extends State<ChatWithFriends> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.back();
+                          AppNavigation.pop(context);
                         },
                         child: Image.asset(Assets.imagesArrowBack, height: 20),
                       ),

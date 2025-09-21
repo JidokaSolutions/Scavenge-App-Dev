@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/state_manager.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -85,7 +84,10 @@ class _TimeBaseVotingState extends State<TimeBaseVoting> {
                 child: MyButton(
                   buttonText: 'Submit',
                   onTap: () {
-                    Get.dialog(_ThanksForVote());
+                    showDialog(
+                      context: context,
+                      builder: (context) => _ThanksForVote(),
+                    );
                   },
                 ),
               )
@@ -139,8 +141,9 @@ class _TimeBaseVotingState extends State<TimeBaseVoting> {
                     time: '12:00',
                     votes: 12,
                     onDQ: () async {
-                      Get.dialog(
-                        _DisqualifiedTeam(
+                      showDialog(
+                        context: context,
+                        builder: (context) => _DisqualifiedTeam(
                           onDisqualify: () {
                             setState(() {
                               _disqualified[index] = true;
@@ -203,8 +206,9 @@ class _TimeBaseVotingState extends State<TimeBaseVoting> {
                     time: '12:00',
                     votes: 12,
                     onDQ: () async {
-                      Get.dialog(
-                        _DisqualifiedTeam(
+                      showDialog(
+                        context: context,
+                        builder: (context) => _DisqualifiedTeam(
                           onDisqualify: () {
                             setState(() {
                               _disqualified[index] = true;
@@ -267,8 +271,9 @@ class _TimeBaseVotingState extends State<TimeBaseVoting> {
                     time: '12:00',
                     votes: 12,
                     onDQ: () async {
-                      Get.dialog(
-                        _DisqualifiedTeam(
+                      showDialog(
+                        context: context,
+                        builder: (context) => _DisqualifiedTeam(
                           onDisqualify: () {
                             setState(() {
                               _disqualified[index] = true;
@@ -472,7 +477,7 @@ class _ThanksForVoteState extends State<_ThanksForVote> {
   }
 
   void dialogHolder() {
-    Timer(Duration(seconds: 3), () => Get.to(() => WaitingForOtherVotes()));
+    Timer(Duration(seconds: 3), () => AppNavigation.pushToWaitingForVotes(context));
   }
 
   @override
@@ -552,7 +557,7 @@ class _DisqualifiedTeam extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -584,7 +589,7 @@ class _DisqualifiedTeam extends StatelessWidget {
                     MyButton(
                       buttonText: 'Ok',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         onDisqualify();
                       },
                     ),

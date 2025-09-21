@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
@@ -199,7 +199,7 @@ class WaitingForOtherVotes extends StatelessWidget {
                 circularStrokeCap: CircularStrokeCap.round,
                 animation: true,
                 onAnimationEnd: () {
-                  Get.to(() => Leaderboard());
+                  AppNavigation.pushToLeaderboard(context);
                 },
               ),
             ),

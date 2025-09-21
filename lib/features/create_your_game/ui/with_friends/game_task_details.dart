@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
@@ -113,7 +113,10 @@ class GameTaskDetails extends StatelessWidget {
               MyButton(
                 buttonText: '',
                 onTap: () {
-                  Get.dialog(_LocationRestricted());
+                  showDialog(
+                    context: context,
+                    builder: (context) => _LocationRestricted(),
+                  );
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -134,7 +137,7 @@ class GameTaskDetails extends StatelessWidget {
               MyBorderButton(
                 buttonText: '',
                 onTap: () {
-                  Get.to(() => UploadEvidence());
+                  // TODO: Add UploadEvidence route to GoRouter
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -187,7 +190,7 @@ class _LocationRestricted extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,

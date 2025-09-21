@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/state_manager.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -86,7 +85,10 @@ class _JudgeBaseVotingState extends State<JudgeBaseVoting> {
                 child: MyButton(
                   buttonText: 'Submit',
                   onTap: () {
-                    Get.dialog(_ThanksForVote());
+                    showDialog(
+                      context: context,
+                      builder: (context) => _ThanksForVote(),
+                    );
                   },
                 ),
               )
@@ -496,7 +498,7 @@ class _ThanksForVoteState extends State<_ThanksForVote> {
   }
 
   void dialogHolder() {
-    Timer(Duration(seconds: 3), () => Get.to(() => WaitingForOtherVotes()));
+    Timer(Duration(seconds: 3), () => AppNavigation.pushToWaitingForVotes(context));
   }
 
   @override

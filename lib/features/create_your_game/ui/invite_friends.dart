@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -214,7 +214,7 @@ class InviteFriends extends StatelessWidget {
                 textSize: 16,
                 buttonText: 'Next',
                 onTap: () {
-                  Get.to(() => WaitingForPlayers());
+                  AppNavigation.pushToWaitingForPlayers(context);
                 },
               ),
             ],

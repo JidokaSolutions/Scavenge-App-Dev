@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../../../../core/routes/app_navigation.dart';
 import 'package:pinput/pinput.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
@@ -53,7 +53,7 @@ class _OTPVerification extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.back();
+                    AppNavigation.pop(context);
                   },
                   child: Image.asset(Assets.imagesArrowBack, height: 20, width: 20),
                 ),
@@ -76,7 +76,8 @@ class _OTPVerification extends StatelessWidget {
             MyButton(
               buttonText: 'Verify',
               onTap: () {
-                Get.to(() => CreateNewPassword());
+                // TODO: Add CreateNewPassword route to GoRouter
+                // AppNavigation.pushToCreateNewPassword(context);
               },
             ),
             SizedBox(height: 24),

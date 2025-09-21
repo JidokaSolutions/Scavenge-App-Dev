@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -195,7 +195,7 @@ class _MyProgressState extends State<_MyProgress> {
                         ],
                       ),
                       onTap: () {
-                        Get.to(() => ChatWithFriends());
+                        AppNavigation.pushToChatWithFriends(context);
                       },
                     ),
                   ),
@@ -297,7 +297,10 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Submit Task',
                                   onTap: () {
-                                    Get.dialog(_SubmitYourEvidence());
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => _SubmitYourEvidence(),
+                                    );
                                   },
                                 ),
                               ),
@@ -317,7 +320,10 @@ class _MyProgressState extends State<_MyProgress> {
           child: MyButton(
             buttonText: 'End Hunt',
             onTap: () {
-              _taskCompleted.contains(true) ? Get.dialog(_EndHunt()) : null;
+              _taskCompleted.contains(true) ? showDialog(
+                context: context,
+                builder: (context) => _EndHunt(),
+              ) : null;
             },
             isDisabled: !_taskCompleted.contains(true),
           ),
@@ -608,7 +614,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -630,7 +636,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyButton(
                       buttonText: '',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -651,7 +657,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyBorderButton(
                       buttonText: '',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         Get.to(() => UploadEvidence());
                       },
                       child: Row(
@@ -708,7 +714,7 @@ class _EndHunt extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -739,14 +745,14 @@ class _EndHunt extends StatelessWidget {
                     MyBorderButton(
                       buttonText: 'Cancel',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                     ),
                     SizedBox(height: 16),
                     MyButton(
                       buttonText: 'End Hunt',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         if (createGameController.selectedGameType ==
                             GameType.timeBase)
                           Get.to(() => TimeBaseVoting());

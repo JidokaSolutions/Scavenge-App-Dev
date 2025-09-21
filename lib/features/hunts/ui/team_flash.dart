@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -126,7 +126,7 @@ class TeamFlash extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(() => ViewPlayerProfile());
+                          AppNavigation.pushToPlayerProfile(context, 'dummy-player-id');
                         },
                         child: Container(
                           height: 30,

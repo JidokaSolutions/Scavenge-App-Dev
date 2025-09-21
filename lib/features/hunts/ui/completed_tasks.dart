@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
@@ -57,7 +57,7 @@ class CompletedTasks extends StatelessWidget {
                           ];
                           return GestureDetector(
                             onTap: () {
-                              Get.to(() => CompletedTaskDetails());
+                              AppNavigation.pushToCompletedTaskDetails(context, 'dummy-task-id');
                             },
                             child: Container(
                               padding: EdgeInsets.all(12),

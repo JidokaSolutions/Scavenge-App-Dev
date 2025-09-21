@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
@@ -204,7 +204,10 @@ class CheckEvidenceAccuracy extends StatelessWidget {
               MyButton(
                 buttonText: 'Submit Evidence',
                 onTap: () {
-                  Get.dialog(_UploadingTask());
+                  showDialog(
+                    context: context,
+                    builder: (context) => _UploadingTask(),
+                  );
                 },
               ),
               MyText(
@@ -272,8 +275,11 @@ class _UploadingTaskState extends State<_UploadingTask> {
     });
     await Future.delayed(const Duration(milliseconds: 800));
     if (mounted) {
-      Get.back();
-      Get.dialog(_SuccessDialog());
+      AppNavigation.pop(context);
+      showDialog(
+        context: context,
+        builder: (context) => _SuccessDialog(),
+      );
     }
   }
 
@@ -301,7 +307,7 @@ class _UploadingTaskState extends State<_UploadingTask> {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -353,7 +359,7 @@ class _UploadingTaskState extends State<_UploadingTask> {
                       onTap: failed
                           ? _retryUpload
                           : () {
-                              Get.back();
+                              AppNavigation.pop(context);
                             },
                       textSize: 16,
                     ),
@@ -391,7 +397,7 @@ class _SuccessDialog extends StatelessWidget {
                       Image.asset(Assets.imagesLogo, height: 64),
                       GestureDetector(
                         onTap: () {
-                          Get.back();
+                          AppNavigation.pop(context);
                         },
                         child: Image.asset(
                           Assets.imagesClose,
@@ -422,9 +428,9 @@ class _SuccessDialog extends StatelessWidget {
                   MyButton(
                     buttonText: 'Back To Task List',
                     onTap: () {
-                      Get.back();
-                      Get.back();
-                      Get.back();
+                      AppNavigation.pop(context);
+                      AppNavigation.pop(context);
+                      AppNavigation.pop(context);
                     },
                     textSize: 16,
                   ),

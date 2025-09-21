@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 
 import '../constants/app_colors.dart';
 import '../constants/app_fonts.dart';
@@ -14,6 +14,7 @@ AppBar simpleAppBar({
   final Widget? leading,
   List<Widget>? actions,
   VoidCallback? onLeadingTap,
+  BuildContext? context,
 }) {
   return AppBar(
     elevation: 0,
@@ -26,7 +27,11 @@ AppBar simpleAppBar({
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: onLeadingTap ?? () => Get.back(),
+                    onTap: onLeadingTap ?? () {
+                      if (context != null) {
+                        AppNavigation.pop(context);
+                      }
+                    },
                     child: Image.asset(Assets.imagesArrowBack, height: 20),
                   ),
                 ],

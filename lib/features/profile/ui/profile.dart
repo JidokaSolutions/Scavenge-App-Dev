@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
@@ -112,7 +112,7 @@ class Profile extends StatelessWidget {
                               height: 40,
                               buttonText: '',
                               onTap: () {
-                                Get.to(() => EditProfile());
+                                AppNavigation.pushToEditProfile(context);
                               },
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -296,7 +296,7 @@ class Profile extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.to(() => AddNewFriend());
+                              AppNavigation.pushToAddFriend(context);
                             },
                             child: Container(
                               height: 30,
@@ -333,7 +333,7 @@ class Profile extends StatelessWidget {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              Get.to(() => ViewPlayerProfile());
+                              AppNavigation.pushToPlayerProfile(context, 'defaultPlayerId');
                             },
                             child: Container(
                               padding: EdgeInsets.all(8),
@@ -382,7 +382,7 @@ class Profile extends StatelessWidget {
                             haveShadow: false,
                             buttonText: 'View More',
                             onTap: () {
-                              Get.to(() => ViewFriends());
+                              AppNavigation.pushToFriends(context);
                             },
                           ),
                         ),
@@ -501,7 +501,7 @@ class Profile extends StatelessWidget {
                             haveShadow: false,
                             buttonText: 'View More',
                             onTap: () {
-                              Get.to(() => CompletedHunts());
+                              AppNavigation.pushToCompletedHunts(context);
                             },
                           ),
                         ),
