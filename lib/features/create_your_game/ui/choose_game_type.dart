@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -79,8 +80,7 @@ class _ChooseGameTypeState extends State<ChooseGameType> {
             onTap: () {
               if (createGameController.selectedPlayMode.value ==
                   PlayMode.solo) {
-                // TODO: Add SoloTimeBaseHunt route to GoRouter
-                // AppNavigation.pushToSoloTimeBaseHunt(context);
+                AppNavigation.pushToSoloTimeBaseHunt(context);
               } else
                 createGameController.nextStep();
             },

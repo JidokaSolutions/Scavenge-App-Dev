@@ -69,8 +69,7 @@ class _ForgotPassword extends StatelessWidget {
             MyButton(
               buttonText: 'Send',
               onTap: () {
-                // TODO: Add OTP verification route to GoRouter
-                // AppNavigation.pushToOTPVerification(context);
+                AppNavigation.pushToOtpVerification(context);
               },
             ),
           ],

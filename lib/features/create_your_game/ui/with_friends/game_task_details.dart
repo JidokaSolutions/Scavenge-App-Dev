@@ -137,7 +137,7 @@ class GameTaskDetails extends StatelessWidget {
               MyBorderButton(
                 buttonText: '',
                 onTap: () {
-                  // TODO: Add UploadEvidence route to GoRouter
+                  AppNavigation.pushToUploadEvidence(context);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

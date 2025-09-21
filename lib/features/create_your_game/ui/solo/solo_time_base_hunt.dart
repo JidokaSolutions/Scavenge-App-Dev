@@ -159,7 +159,7 @@ class SoloTimeBaseHunt extends StatelessWidget {
                                 weight: FontWeight.w500,
                                 buttonText: 'View Detail',
                                 onTap: () {
-                                  // TODO: Add SoloHuntDetails route to GoRouter
+                                  AppNavigation.pushToSoloHuntDetails(context);
                                 },
                               ),
                             ),
@@ -272,7 +272,7 @@ class _JoinHunt extends StatelessWidget {
                       buttonText: 'Confirm & Join',
                       onTap: () {
                         AppNavigation.pop(context);
-                        // TODO: Add SoloGameCheckList route to GoRouter
+                        AppNavigation.pushToSoloGameCheckList(context);
                       },
                     ),
                     SizedBox(height: 16),

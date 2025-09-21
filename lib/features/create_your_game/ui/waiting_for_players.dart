@@ -376,8 +376,7 @@ class WaitingForPlayers extends StatelessWidget {
                     child: MyButton(
                       buttonText: 'Start Game',
                       onTap: () {
-                        // TODO: Add WithFriends route to GoRouter
-                        // AppNavigation.pushToWithFriends(context);
+                        AppNavigation.pushToWithFriends(context);
                       },
                     ),
                   ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -84,8 +85,7 @@ class SoloRacingHuntDetails extends StatelessWidget {
           child: MyButton(
             buttonText: 'Start Hunt',
             onTap: () {
-              // TODO: Add SoloGameCheckList route to GoRouter
-              // AppNavigation.pushToSoloGameCheckList(context);
+              AppNavigation.pushToSoloGameCheckList(context);
             },
           ),
         ),

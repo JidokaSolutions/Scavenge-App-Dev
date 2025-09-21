@@ -155,7 +155,7 @@ class _SoloGameCheckListState extends State<SoloGameCheckList> {
                                       weight: FontWeight.w500,
                                       buttonText: 'Task Detail',
                                       onTap: () {
-                                        // TODO: Add SoloHuntDetails route to GoRouter
+                                        AppNavigation.pushToSoloHuntDetails(context);
                                       },
                                     ),
                                   ),
@@ -274,7 +274,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                       buttonText: '',
                       onTap: () {
                         AppNavigation.pop(context);
-                        // TODO: Add UploadEvidence route to GoRouter
+                        AppNavigation.pushToUploadEvidence(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

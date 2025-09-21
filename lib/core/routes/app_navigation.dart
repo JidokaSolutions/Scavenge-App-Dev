@@ -219,6 +219,74 @@ class AppNavigation {
     context.push(AppRoutes.location);
   }
 
+  // Auth navigation methods
+  static void pushToForgotPassword(BuildContext context) {
+    context.push(AppRoutes.forgotPassword);
+  }
+
+  static void pushToOtpVerification(BuildContext context) {
+    context.push(AppRoutes.otpVerification);
+  }
+
+  static void pushToCreateNewPassword(BuildContext context) {
+    context.push(AppRoutes.createNewPassword);
+  }
+
+  // Solo game navigation methods
+  static void pushToSoloExploringHunt(BuildContext context) {
+    context.push(AppRoutes.soloExploringHunt);
+  }
+
+  static void pushToSoloTimeBaseHunt(BuildContext context) {
+    context.push(AppRoutes.soloTimeBaseHunt);
+  }
+
+  static void pushToSoloHuntDetails(BuildContext context) {
+    context.push(AppRoutes.soloHuntDetails);
+  }
+
+  static void pushToSoloGameCheckList(BuildContext context) {
+    context.push(AppRoutes.soloGameCheckList);
+  }
+
+  static void pushToSoloRacingHuntDetails(BuildContext context) {
+    context.push(AppRoutes.soloRacingHuntDetails);
+  }
+
+  // With friends game navigation methods
+  static void pushToWithFriends(BuildContext context) {
+    context.push(AppRoutes.withFriends);
+  }
+
+  static void pushToViewTeamProgress(BuildContext context) {
+    context.push(AppRoutes.viewTeamProgress);
+  }
+
+  static void pushToGameTaskDetails(BuildContext context) {
+    context.push(AppRoutes.gameTaskDetails);
+  }
+
+  static void pushToUploadEvidence(BuildContext context) {
+    context.push(AppRoutes.uploadEvidence);
+  }
+
+  static void pushToCheckEvidenceAccuracy(BuildContext context) {
+    context.push(AppRoutes.checkEvidenceAccuracy);
+  }
+
+  static void pushToTeamMemberDetails(BuildContext context) {
+    context.push(AppRoutes.teamMemberDetails);
+  }
+
+  // Voting navigation methods
+  static void pushToTimeBaseVoting(BuildContext context) {
+    context.push(AppRoutes.timeBaseVoting);
+  }
+
+  static void pushToJudgeBaseVoting(BuildContext context) {
+    context.push(AppRoutes.judgeBaseVoting);
+  }
+
   static void pop(BuildContext context) {
     context.pop();
   }

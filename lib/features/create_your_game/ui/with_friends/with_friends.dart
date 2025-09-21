@@ -210,8 +210,7 @@ class _MyProgressState extends State<_MyProgress> {
                   haveShadow: false,
                   buttonText: 'View Team Progress',
                   onTap: () {
-                    // TODO: Add ViewTeamProgress route to GoRouter
-                    // AppNavigation.pushToViewTeamProgress(context);
+                    AppNavigation.pushToViewTeamProgress(context);
                   },
                 ),
               ),
@@ -286,8 +285,7 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Task detail',
                                   onTap: () {
-                                    // TODO: Add GameTaskDetails route to GoRouter
-                                    // AppNavigation.pushToGameTaskDetails(context);
+                                    AppNavigation.pushToGameTaskDetails(context);
                                   },
                                 ),
                               ),
@@ -660,8 +658,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                       buttonText: '',
                       onTap: () {
                         AppNavigation.pop(context);
-                        // TODO: Add UploadEvidence route to GoRouter
-                        // AppNavigation.pushToUploadEvidence(context);
+                        AppNavigation.pushToUploadEvidence(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -758,11 +755,9 @@ class _EndHunt extends StatelessWidget {
                         AppNavigation.pop(context);
                         if (createGameController.selectedGameType ==
                             GameType.timeBase)
-                          // TODO: Add TimeBaseVoting route to GoRouter
-                          // AppNavigation.pushToTimeBaseVoting(context);
+                          AppNavigation.pushToTimeBaseVoting(context);
                         else
-                          // TODO: Add JudgeBaseVoting route to GoRouter
-                          // AppNavigation.pushToJudgeBaseVoting(context);
+                          AppNavigation.pushToJudgeBaseVoting(context);
                       },
                     ),
                   ],

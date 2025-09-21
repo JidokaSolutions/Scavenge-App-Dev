@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -27,8 +28,7 @@ class SoloExploringHunt extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // TODO: Add SoloRacingHuntDetails route to GoRouter
-                // AppNavigation.pushToSoloRacingHuntDetails(context);
+                AppNavigation.pushToSoloRacingHuntDetails(context);
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),

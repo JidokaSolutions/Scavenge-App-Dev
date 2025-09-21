@@ -76,8 +76,7 @@ class _OTPVerification extends StatelessWidget {
             MyButton(
               buttonText: 'Verify',
               onTap: () {
-                // TODO: Add CreateNewPassword route to GoRouter
-                // AppNavigation.pushToCreateNewPassword(context);
+                AppNavigation.pushToCreateNewPassword(context);
               },
             ),
             SizedBox(height: 24),

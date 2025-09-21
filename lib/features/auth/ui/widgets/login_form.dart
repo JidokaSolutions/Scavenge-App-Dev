@@ -124,8 +124,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    // TODO: Add ForgotPassword route to GoRouter
-                    // AppNavigation.pushToForgotPassword(context);
+                    AppNavigation.pushToForgotPassword(context);
                   },
                   child: const MyText(
                     text: 'Forgot Password?',
