@@ -18,7 +18,8 @@ class CommonImageView extends StatelessWidget {
   final BoxFit fit;
   final String placeHolder;
 
-  CommonImageView({super.key, 
+  CommonImageView({
+    super.key,
     this.url,
     this.imagePath,
     this.svgPath,

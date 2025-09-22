@@ -142,7 +142,8 @@ class SoloTimeBaseHunt extends StatelessWidget {
                         ),
                         MyText(
                           paddingTop: 8,
-                          text: 'Capture the essence of downtown through creative photography challenges. Find hidden murals, architectural details, and local culture.',
+                          text:
+                              'Capture the essence of downtown through creative photography challenges. Find hidden murals, architectural details, and local culture.',
                           size: 14,
                           color: kTertiaryColor.withValues(alpha: 0.8),
                         ),

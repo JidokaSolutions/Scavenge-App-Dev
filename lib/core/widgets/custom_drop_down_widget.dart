@@ -6,7 +6,8 @@ import 'my_text_widget.dart';
 
 // ignore: must_be_immutable
 class CustomDropDown extends StatelessWidget {
-  CustomDropDown({super.key, 
+  CustomDropDown({
+    super.key,
     required this.hint,
     required this.items,
     required this.selectedValue,

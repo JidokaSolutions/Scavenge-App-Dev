@@ -59,7 +59,8 @@ class LocationNotifier extends StateNotifier<LocationModel> {
       ).listen(
         (Position position) {
           // Update state with new position
-          state = state.copyWith(latitude: position.latitude, longitude: position.longitude, isStreaming: true, updateCount: state.updateCount + 1, error: null);
+          state =
+              state.copyWith(latitude: position.latitude, longitude: position.longitude, isStreaming: true, updateCount: state.updateCount + 1, error: null);
 
           // Get address for the new position
           // _getAddressFromCoordinates(position.latitude, position.longitude);
