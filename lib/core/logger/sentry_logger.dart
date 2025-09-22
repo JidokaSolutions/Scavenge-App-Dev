@@ -1,5 +1,6 @@
 // sentry_logger.dart
 import 'package:sentry_flutter/sentry_flutter.dart';
+
 import 'logger.dart';
 
 class MySentryLogger implements AppLogger {

@@ -61,7 +61,6 @@ class SoloHuntDetails extends StatelessWidget {
                               weight: FontWeight.w500,
                               paddingBottom: 8,
                             ),
-
                             MyText(
                               text:
                                   'Capture the essence of downtown through creative photography challenges. Find hidden murals, architectural details, and local culture.',
@@ -116,7 +115,6 @@ class SoloHuntDetails extends StatelessWidget {
                                 );
                               }),
                             ),
-
                             MyText(
                               paddingTop: 16,
                               text: 'Scoring Rules',

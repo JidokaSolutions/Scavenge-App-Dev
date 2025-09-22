@@ -8,6 +8,7 @@ import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
 import '../logic/create_game_provider.dart';
 
 class CreateYourGame extends ConsumerWidget {
@@ -46,6 +47,7 @@ class CreateYourGame extends ConsumerWidget {
 
 class _CustomStepper extends StatelessWidget {
   const _CustomStepper({required this.labels});
+
   final List<String> labels;
 
   @override

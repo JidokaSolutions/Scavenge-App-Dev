@@ -2,21 +2,19 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/app.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/waiting_for_other_votes.dart';
 
 class TimeBaseVoting extends StatefulWidget {
   TimeBaseVoting({super.key});
@@ -443,7 +441,6 @@ class _TeamCard extends StatelessWidget {
             ],
           ),
         ),
-
         if (isDisqualified)
           Container(
             decoration: BoxDecoration(
@@ -533,6 +530,7 @@ class _DisqualifiedTeam extends StatelessWidget {
   final VoidCallback onDisqualify;
 
   const _DisqualifiedTeam({super.key, required this.onDisqualify});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -577,15 +575,13 @@ class _DisqualifiedTeam extends StatelessWidget {
                       paddingBottom: 10,
                     ),
                     MyText(
-                      text:
-                          'Are you sure you want to disqualify this team? This action cannot be undone.',
+                      text: 'Are you sure you want to disqualify this team? This action cannot be undone.',
                       size: 13,
                       textAlign: TextAlign.center,
                       weight: FontWeight.w500,
                       lineHeight: 1.5,
                       paddingBottom: 24,
                     ),
-
                     MyButton(
                       buttonText: 'Ok',
                       onTap: () {

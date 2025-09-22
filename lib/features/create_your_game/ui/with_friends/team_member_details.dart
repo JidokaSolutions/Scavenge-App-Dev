@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -137,9 +137,7 @@ class _TeamMemberDetailsState extends State<TeamMemberDetails> {
                                 width: 1.0,
                                 color: kGreenColor,
                               ),
-                              color: isActive
-                                  ? kGreenColor
-                                  : kPrimaryColor.withValues(alpha: 0.7),
+                              color: isActive ? kGreenColor : kPrimaryColor.withValues(alpha: 0.7),
                               borderRadius: BorderRadius.circular(4),
                             ),
                             child: !isActive

@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:scavenge_hunt/core/env/env.dart';
+
 import 'api_handler.dart';
-import 'dio_interceptors/auth_interceptor.dart';
 
 final apiHandlerProvider = Provider<ApiHandler>((ref) {
   final dio = Dio(

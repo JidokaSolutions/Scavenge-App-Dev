@@ -8,22 +8,14 @@ import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
 import 'package:scavenge_hunt/core/routes/app_navigation.dart';
-import 'package:scavenge_hunt/app.dart';
-import 'package:scavenge_hunt/features/create_your_game/logic/create_game_provider.dart';
-import 'package:scavenge_hunt/features/create_your_game/logic/create_game_state.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/chat_with_friends.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/game_task_details.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/team_member_details.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/upload_evidence.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/voting/judge_base_voting.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/voting/time_base_voting.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/view_team_progress.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import 'package:scavenge_hunt/features/create_your_game/logic/create_game_provider.dart';
+import 'package:scavenge_hunt/features/create_your_game/logic/create_game_state.dart';
 
 class WithFriends extends StatefulWidget {
   const WithFriends({super.key});
@@ -35,6 +27,7 @@ class WithFriends extends StatefulWidget {
 class _WithFriendsState extends State<WithFriends> {
   int currentIndex = 0;
   final List<String> tabLabels = ['My Progress', 'Opponent Progress'];
+
   @override
   Widget build(BuildContext context) {
     return CustomContainer(

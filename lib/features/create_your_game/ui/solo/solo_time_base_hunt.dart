@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_game_checklist.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_hunt_details.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -144,8 +142,7 @@ class SoloTimeBaseHunt extends StatelessWidget {
                         ),
                         MyText(
                           paddingTop: 8,
-                          text:
-                              'Capture the essence of downtown through creative photography challenges. Find hidden murals, architectural details, and local culture.',
+                          text: 'Capture the essence of downtown through creative photography challenges. Find hidden murals, architectural details, and local culture.',
                           size: 14,
                           color: kTertiaryColor.withValues(alpha: 0.8),
                         ),
@@ -266,7 +263,6 @@ class _JoinHunt extends StatelessWidget {
                         );
                       }),
                     ),
-
                     SizedBox(height: 24),
                     MyButton(
                       buttonText: 'Confirm & Join',

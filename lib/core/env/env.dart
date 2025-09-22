@@ -12,7 +12,7 @@ class Env {
     switch (env) {
       case EnvType.dev:
         return "http://165.227.65.95:8000";
-        // return "https://api-dev.scavengehunt.com";
+      // return "https://api-dev.scavengehunt.com";
       case EnvType.staging:
         return "https://api-staging.scavengehunt.com";
       case EnvType.prod:

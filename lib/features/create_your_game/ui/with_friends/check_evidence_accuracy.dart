@@ -1,16 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
-import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/app.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
@@ -125,8 +122,7 @@ class CheckEvidenceAccuracy extends StatelessWidget {
                                 SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
+                                    crossAxisAlignment: CrossAxisAlignment.stretch,
                                     children: [
                                       Row(
                                         children: [
@@ -144,12 +140,10 @@ class CheckEvidenceAccuracy extends StatelessWidget {
                                             ),
                                             decoration: BoxDecoration(
                                               color: kGreenColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
+                                              borderRadius: BorderRadius.circular(50),
                                             ),
                                             child: MyText(
-                                              text:
-                                                  '${(item['progress'] * 100).toInt()}%',
+                                              text: '${(item['progress'] * 100).toInt()}%',
                                               size: 10,
                                               fontFamily: AppFonts.Fredoka,
                                               color: kPrimaryColor,
@@ -172,8 +166,7 @@ class CheckEvidenceAccuracy extends StatelessWidget {
                                           begin: Alignment.centerLeft,
                                           end: Alignment.centerRight,
                                         ),
-                                        backgroundColor: kPrimaryColor
-                                            .withValues(alpha: 0.4),
+                                        backgroundColor: kPrimaryColor.withValues(alpha: 0.4),
                                         barRadius: const Radius.circular(50),
                                         animation: true,
                                       ),
@@ -345,9 +338,7 @@ class _UploadingTaskState extends State<_UploadingTask> {
                     ),
                     MyText(
                       paddingTop: 10,
-                      text: failed
-                          ? 'Something went wrong. Please try again.'
-                          : '2 out of 3 remaining..',
+                      text: failed ? 'Something went wrong. Please try again.' : '2 out of 3 remaining..',
                       size: 13,
                       color: failed ? kRedColor : kTertiaryColor,
                       weight: FontWeight.w600,
@@ -417,8 +408,7 @@ class _SuccessDialog extends StatelessWidget {
                     paddingBottom: 16,
                   ),
                   MyText(
-                    text:
-                        'All your images successfully uploaded. Please wait while review your task',
+                    text: 'All your images successfully uploaded. Please wait while review your task',
                     size: 13,
                     weight: FontWeight.w600,
                     lineHeight: 1.5,

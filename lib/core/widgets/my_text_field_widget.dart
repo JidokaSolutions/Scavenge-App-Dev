@@ -57,9 +57,7 @@ class MyTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: TextFormField(
               onTap: onTap,
-              textAlignVertical: prefix != null || suffix != null
-                  ? TextAlignVertical.center
-                  : null,
+              textAlignVertical: prefix != null || suffix != null ? TextAlignVertical.center : null,
               cursorColor: kTertiaryColor,
               maxLines: maxLines,
               readOnly: isReadOnly ?? false,
@@ -107,8 +105,7 @@ class MyTextField extends StatelessWidget {
 
 // ignore: must_be_immutable
 class PhoneField extends StatefulWidget {
-  PhoneField({Key? key, this.controller, this.onChanged, this.fillColor})
-    : super(key: key);
+  PhoneField({Key? key, this.controller, this.onChanged, this.fillColor}) : super(key: key);
 
   TextEditingController? controller;
   ValueChanged<String>? onChanged;

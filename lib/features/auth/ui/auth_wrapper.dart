@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../landing/ui/landing_page.dart';
 import '../data/providers/auth_providers.dart';
 import '../logic/auth_state.dart';
-import '../../landing/ui/landing_page.dart';
 import 'login.dart';
 
 class AuthWrapper extends ConsumerWidget {
@@ -27,7 +28,6 @@ class _LoadingScreen extends StatelessWidget {
   const _LoadingScreen();
 
   @override
-
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(

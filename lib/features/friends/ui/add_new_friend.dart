@@ -5,7 +5,6 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/app.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -118,7 +117,6 @@ class AddNewFriend extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-
                                 Expanded(
                                   child: Container(
                                     height: 30,
@@ -155,7 +153,6 @@ class AddNewFriend extends StatelessWidget {
                 return SizedBox(height: 12);
               },
             ),
-
             MyText(
               paddingTop: 24,
               text: 'Friend Suggestions',

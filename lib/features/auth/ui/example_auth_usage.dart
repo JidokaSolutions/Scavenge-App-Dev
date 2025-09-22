@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../data/providers/auth_providers.dart';
 import 'widgets/logout_button.dart';
 
@@ -26,7 +27,6 @@ class ExampleAuthUsage extends ConsumerWidget {
             Text('Is Authenticated: $isAuthenticated'),
             Text('Current User: ${currentUser ?? 'None'}'),
             const SizedBox(height: 20),
-
             if (authState.hasError)
               Container(
                 padding: const EdgeInsets.all(12),
@@ -39,9 +39,7 @@ class ExampleAuthUsage extends ConsumerWidget {
                   style: const TextStyle(color: Colors.red),
                 ),
               ),
-
             const SizedBox(height: 20),
-
             if (isAuthenticated) ...[
               const Text('You are logged in!'),
               const SizedBox(height: 16),
@@ -58,11 +56,9 @@ class ExampleAuthUsage extends ConsumerWidget {
                 child: const Text('Test Login'),
               ),
             ],
-
             const SizedBox(height: 20),
             const Text('Quick Actions:'),
             const SizedBox(height: 8),
-
             ElevatedButton(
               onPressed: () {
                 ref.read(authNotifierProvider.notifier).clearError();

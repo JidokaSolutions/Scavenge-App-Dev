@@ -20,24 +20,21 @@ class CompositeLogger implements AppLogger {
   }
 
   @override
-  void error(dynamic exception,
-      {StackTrace? stackTrace, Map<String, dynamic>? context}) {
+  void error(dynamic exception, {StackTrace? stackTrace, Map<String, dynamic>? context}) {
     for (final l in _loggers) {
       l.error(exception, stackTrace: stackTrace, context: context);
     }
   }
 
   @override
-  void fatal(dynamic exception,
-      {StackTrace? stackTrace, Map<String, dynamic>? context}) {
+  void fatal(dynamic exception, {StackTrace? stackTrace, Map<String, dynamic>? context}) {
     for (final l in _loggers) {
       l.fatal(exception, stackTrace: stackTrace, context: context);
     }
   }
 
   @override
-  Future<void> captureMessage(String message,
-      {LogLevel level = LogLevel.info, Map<String, dynamic>? context}) async {
+  Future<void> captureMessage(String message, {LogLevel level = LogLevel.info, Map<String, dynamic>? context}) async {
     for (final l in _loggers) {
       await l.captureMessage(message, level: level, context: context);
     }

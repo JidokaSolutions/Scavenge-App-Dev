@@ -7,9 +7,9 @@ import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_time_base_hunt.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
 import '../../../core/routes/app_navigation.dart';
 import '../logic/create_game_provider.dart';
 import '../logic/create_game_state.dart';
@@ -140,9 +140,7 @@ class _ChooseGameTypeState extends ConsumerState<ChooseGameType> {
                       ),
                     )
                   : Border.all(width: 1.0, color: kPrimaryColor),
-              color: currentIndex == index
-                  ? kGreenColor
-                  : kPrimaryColor.withValues(alpha: 0.6),
+              color: currentIndex == index ? kGreenColor : kPrimaryColor.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(16),
             ),
             child: isRow!
@@ -156,9 +154,7 @@ class _ChooseGameTypeState extends ConsumerState<ChooseGameType> {
                           size: 17,
                           weight: FontWeight.w500,
                           fontFamily: AppFonts.Fredoka,
-                          color: currentIndex == index
-                              ? kPrimaryColor
-                              : kTertiaryColor,
+                          color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
                           paddingTop: 6,
                         ),
                       ),
@@ -173,9 +169,7 @@ class _ChooseGameTypeState extends ConsumerState<ChooseGameType> {
                         size: 17,
                         weight: FontWeight.w500,
                         fontFamily: AppFonts.Fredoka,
-                        color: currentIndex == index
-                            ? kPrimaryColor
-                            : kTertiaryColor,
+                        color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
                         paddingTop: 6,
                       ),
                     ],

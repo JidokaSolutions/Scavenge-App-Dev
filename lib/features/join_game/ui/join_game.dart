@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class JoinGame extends StatelessWidget {
   const JoinGame({super.key});
@@ -107,9 +106,9 @@ class JoinGame extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       showDialog(
-                          context: context,
-                          builder: (context) => _JoinHunt(),
-                        );
+                                        context: context,
+                                        builder: (context) => _JoinHunt(),
+                                      );
                                     },
                                     child: Container(
                                       width: 83,
@@ -219,7 +218,6 @@ class _JoinHunt extends StatelessWidget {
                         );
                       }),
                     ),
-
                     SizedBox(height: 24),
                     MyButton(
                       buttonText: 'Confirm & Join',

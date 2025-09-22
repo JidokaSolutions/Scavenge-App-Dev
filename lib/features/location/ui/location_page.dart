@@ -99,10 +99,10 @@ class LocationWidget extends ConsumerWidget {
                     onPressed: locationState.isLoading
                         ? null
                         : () => locationNotifier.startLocationStream(
-                      accuracy: streamSettings.accuracy,
-                      distanceFilter: streamSettings.distanceFilter,
-                      interval: streamSettings.interval,
-                    ),
+                              accuracy: streamSettings.accuracy,
+                              distanceFilter: streamSettings.distanceFilter,
+                              interval: streamSettings.interval,
+                            ),
                     style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 48), backgroundColor: Colors.green),
                     child: const Text('Start Location Stream', style: TextStyle(color: Colors.white)),
                   )

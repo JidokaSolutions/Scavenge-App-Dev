@@ -1,23 +1,18 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/friends/ui/add_new_friend.dart';
-import 'package:scavenge_hunt/features/hunts/ui/completed_hunts.dart';
-import 'package:scavenge_hunt/features/profile/ui/edit_profile.dart';
-import 'package:scavenge_hunt/features/players/ui/view_player_profile.dart';
-import 'package:scavenge_hunt/features/friends/ui/view_friends.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -194,8 +189,7 @@ class Profile extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     Row(
                                       children: [
@@ -231,8 +225,7 @@ class Profile extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     Row(
                                       children: [
@@ -269,7 +262,6 @@ class Profile extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
@@ -392,7 +384,6 @@ class Profile extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
@@ -444,8 +435,7 @@ class Profile extends StatelessWidget {
                                 SizedBox(width: 12),
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
+                                    crossAxisAlignment: CrossAxisAlignment.stretch,
                                     children: [
                                       MyText(
                                         text: 'John Cena',
@@ -464,10 +454,10 @@ class Profile extends StatelessWidget {
                                         text: index == 0
                                             ? '1st Place'
                                             : index == 1
-                                            ? '2nd Place'
-                                            : index == 2
-                                            ? '3rd Place'
-                                            : '${index + 1}th Place',
+                                                ? '2nd Place'
+                                                : index == 2
+                                                    ? '3rd Place'
+                                                    : '${index + 1}th Place',
                                         size: 12,
                                         color: kGreenColor,
                                         weight: FontWeight.w600,

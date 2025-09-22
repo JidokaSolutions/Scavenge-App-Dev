@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/upload_evidence.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -91,8 +90,7 @@ class GameTaskDetails extends StatelessWidget {
                     Expanded(
                       child: MyText(
                         paddingLeft: 12,
-                        text:
-                            'You need to be near the target area to complete this task.',
+                        text: 'You need to be near the target area to complete this task.',
                         size: 12,
                         lineHeight: 1.5,
                         color: kTertiaryColor,
@@ -209,10 +207,8 @@ class _LocationRestricted extends StatelessWidget {
                       paddingTop: 20,
                       paddingBottom: 10,
                     ),
-
                     MyText(
-                      text:
-                          'This scavenger hunt task is location restricted. You must be in the correct area to perform this task.',
+                      text: 'This scavenger hunt task is location restricted. You must be in the correct area to perform this task.',
                       size: 13,
                       textAlign: TextAlign.center,
                       weight: FontWeight.w500,

@@ -1,5 +1,6 @@
 // providers/location_notifier.dart
 import 'dart:async';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -53,21 +54,20 @@ class LocationNotifier extends StateNotifier<LocationModel> {
       }
 
       // Start location stream
-      _positionStreamSubscription =
-          Geolocator.getPositionStream(
-            locationSettings: LocationSettings(accuracy: accuracy, distanceFilter: distanceFilter, timeLimit: interval),
-          ).listen(
-            (Position position) {
-              // Update state with new position
-              state = state.copyWith(latitude: position.latitude, longitude: position.longitude, isStreaming: true, updateCount: state.updateCount + 1, error: null);
+      _positionStreamSubscription = Geolocator.getPositionStream(
+        locationSettings: LocationSettings(accuracy: accuracy, distanceFilter: distanceFilter, timeLimit: interval),
+      ).listen(
+        (Position position) {
+          // Update state with new position
+          state = state.copyWith(latitude: position.latitude, longitude: position.longitude, isStreaming: true, updateCount: state.updateCount + 1, error: null);
 
-              // Get address for the new position
-              // _getAddressFromCoordinates(position.latitude, position.longitude);
-            },
-            onError: (error) {
-              state = state.copyWith(error: error.toString(), isStreaming: false);
-            },
-          );
+          // Get address for the new position
+          // _getAddressFromCoordinates(position.latitude, position.longitude);
+        },
+        onError: (error) {
+          state = state.copyWith(error: error.toString(), isStreaming: false);
+        },
+      );
 
       state = state.copyWith(isStreaming: true, error: null);
     } catch (e) {

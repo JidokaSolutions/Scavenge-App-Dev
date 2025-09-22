@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
@@ -10,7 +11,6 @@ import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class ViewPlayerProfile extends StatelessWidget {
   const ViewPlayerProfile({super.key});
@@ -76,7 +76,6 @@ class ViewPlayerProfile extends StatelessWidget {
                         fontFamily: AppFonts.Fredoka,
                         paddingBottom: 12,
                       ),
-
                       Center(
                         child: Container(
                           padding: EdgeInsets.all(4),
@@ -206,17 +205,17 @@ class ViewPlayerProfile extends StatelessWidget {
                         shrinkWrap: true,
                         padding: AppSizes.ZERO,
                         physics: BouncingScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                              crossAxisSpacing: 8,
-                              mainAxisSpacing: 8,
-                              mainAxisExtent: 65,
-                            ),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          crossAxisSpacing: 8,
+                          mainAxisSpacing: 8,
+                          mainAxisExtent: 65,
+                        ),
                         itemCount: 8,
                         itemBuilder: (BuildContext context, int index) {
                           return CommonImageView(
-                            height: double.infinity, // MediaQuery.of(context).size.height,
+                            height: double.infinity,
+                            // MediaQuery.of(context).size.height,
                             width: double.infinity,
                             radius: 10,
                             url: dummyImg,

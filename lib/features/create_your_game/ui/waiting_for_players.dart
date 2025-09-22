@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -7,8 +6,7 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/chat_with_friends.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/with_friends.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -66,8 +64,7 @@ class WaitingForPlayers extends StatelessWidget {
                     paddingTop: 12,
                     color: kPrimaryColor,
                     textAlign: TextAlign.center,
-                    text:
-                        'Your hunt will begin shortly once all players have joined or the host starts the game.',
+                    text: 'Your hunt will begin shortly once all players have joined or the host starts the game.',
                     size: 16,
                     lineHeight: 1.5,
                     paddingBottom: 12,
@@ -203,7 +200,6 @@ class WaitingForPlayers extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-
                                   Positioned(
                                     top: 0,
                                     right: -18,
@@ -219,9 +215,7 @@ class WaitingForPlayers extends StatelessWidget {
                             MyText(
                               text: index == 5 ? 'Waiting...' : 'Joined',
                               size: 16,
-                              color: index == 5
-                                  ? kPrimaryColor
-                                  : kTertiaryColor,
+                              color: index == 5 ? kPrimaryColor : kTertiaryColor,
                               textAlign: TextAlign.center,
                               fontFamily: AppFonts.Fredoka,
                               weight: FontWeight.w500,
@@ -338,8 +332,7 @@ class WaitingForPlayers extends StatelessWidget {
                               ),
                               MyText(
                                 paddingTop: 4,
-                                text:
-                                    'Local Hunt\nToday 5:00 PM - 10 Tasks - 45 min\nPlayable anywhere',
+                                text: 'Local Hunt\nToday 5:00 PM - 10 Tasks - 45 min\nPlayable anywhere',
                                 size: 12,
                                 lineHeight: 2.0,
                                 color: kTertiaryColor.withValues(alpha: 0.8),
@@ -418,8 +411,7 @@ class _LeaveHunt extends StatelessWidget {
                       paddingBottom: 10,
                     ),
                     MyText(
-                      text:
-                          'You won’t be able to rejoin this session unless invited again',
+                      text: 'You won’t be able to rejoin this session unless invited again',
                       size: 12,
                       fontFamily: AppFonts.Fredoka,
                       textAlign: TextAlign.center,

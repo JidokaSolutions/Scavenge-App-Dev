@@ -11,6 +11,7 @@ import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
 import '../logic/create_game_provider.dart';
 import '../logic/create_game_state.dart';
 
@@ -98,8 +99,8 @@ class _ChoosePlayModeState extends ConsumerState<ChoosePlayMode> {
     setState(() {
       currentIndex = index;
       ref.read(createGameProvider.notifier).selectPlayMode(
-        currentIndex == 0 ? PlayMode.solo : PlayMode.withFriends,
-      );
+            currentIndex == 0 ? PlayMode.solo : PlayMode.withFriends,
+          );
     });
   }
 
@@ -134,9 +135,7 @@ class _ChoosePlayModeState extends ConsumerState<ChoosePlayMode> {
                       ),
                     )
                   : Border.all(width: 1.0, color: kPrimaryColor),
-              color: currentIndex == index
-                  ? kGreenColor
-                  : kPrimaryColor.withValues(alpha: 0.6),
+              color: currentIndex == index ? kGreenColor : kPrimaryColor.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Column(
@@ -170,6 +169,7 @@ class _StartAlone extends StatelessWidget {
   final VoidCallback onStartGame;
 
   const _StartAlone({super.key, required this.onStartGame});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -221,7 +221,6 @@ class _StartAlone extends StatelessWidget {
                       lineHeight: 1.5,
                       paddingBottom: 24,
                     ),
-
                     MyButton(
                       buttonText: 'Start Game',
                       onTap: () {

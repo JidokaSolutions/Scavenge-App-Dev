@@ -1,10 +1,10 @@
 import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constants/app_colors.dart';
-
 
 class CommonImageView extends StatelessWidget {
 // ignore_for_file: must_be_immutable
@@ -73,7 +73,8 @@ class CommonImageView extends StatelessWidget {
             width: 23,
             child: Center(
               child: SizedBox(
-                height: 20,width: 20,
+                height: 20,
+                width: 20,
                 child: CircularProgressIndicator(
                   color: kSecondaryColor,
                   backgroundColor: Colors.grey.shade100,

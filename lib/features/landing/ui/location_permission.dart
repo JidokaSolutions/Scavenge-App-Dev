@@ -44,14 +44,12 @@ class LocationPermission extends StatelessWidget {
                       ),
                       MyText(
                         textAlign: TextAlign.center,
-                        text:
-                            'Scavenge Hunt needs your location to show nearby hunts and verify tasks'
-                                .split(' ')
-                                .map(
-                                  (word) =>
-                                      word[0].toUpperCase() + word.substring(1),
-                                )
-                                .join(' '),
+                        text: 'Scavenge Hunt needs your location to show nearby hunts and verify tasks'
+                            .split(' ')
+                            .map(
+                              (word) => word[0].toUpperCase() + word.substring(1),
+                            )
+                            .join(' '),
                         size: 13,
                         weight: FontWeight.w400,
                         paddingBottom: 34,
@@ -62,7 +60,6 @@ class LocationPermission extends StatelessWidget {
                       ),
                       MyText(
                         onTap: () => AppNavigation.goToLogin(context),
-
                         text: 'Don\'t Allow',
                         size: 14,
                         fontFamily: AppFonts.Fredoka,

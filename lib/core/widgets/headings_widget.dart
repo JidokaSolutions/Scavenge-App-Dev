@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../constants/app_fonts.dart';
 import '../constants/app_images.dart';
 import 'my_text_widget.dart';
@@ -11,6 +12,7 @@ class AuthHeading extends StatelessWidget {
     this.marginTop,
     this.showLogo = true,
   });
+
   final String? title;
   final String? subTitle;
   final double? marginTop;
@@ -21,8 +23,7 @@ class AuthHeading extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        if (showLogo!)
-          Center(child: Image.asset(Assets.imagesLogo, height: 65)),
+        if (showLogo!) Center(child: Image.asset(Assets.imagesLogo, height: 65)),
         MyText(
           paddingTop: marginTop ?? 24,
           text: title ?? '',

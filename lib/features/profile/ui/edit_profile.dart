@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
@@ -9,7 +9,6 @@ import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class EditProfile extends StatelessWidget {
   const EditProfile({super.key});
@@ -112,7 +111,6 @@ class EditProfile extends StatelessWidget {
             ),
           ],
         ),
-
         bottomNavigationBar: Padding(
           padding: AppSizes.DEFAULT,
           child: MyButton(buttonText: 'Save', onTap: () {}),

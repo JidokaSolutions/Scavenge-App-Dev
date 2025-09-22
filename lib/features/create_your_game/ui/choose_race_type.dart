@@ -8,9 +8,9 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/routes/app_navigation.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_exploring_hunt.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+
 import '../logic/create_game_provider.dart';
 import '../logic/create_game_state.dart';
 
@@ -48,8 +48,7 @@ class _ChooseRaceTypeState extends ConsumerState<ChooseRaceType> {
                 icon: Assets.imagesExploring,
                 title: "Exploring the Area",
                 index: 0,
-                subtitle:
-                    'Specific to area\nEat in the Northend\nPicture in Northend',
+                subtitle: 'Specific to area\nEat in the Northend\nPicture in Northend',
               ),
               SizedBox(height: 16),
               userTypeButton(
@@ -77,8 +76,7 @@ class _ChooseRaceTypeState extends ConsumerState<ChooseRaceType> {
           child: MyButton(
             buttonText: 'Next',
             onTap: () {
-              if (ref.read(selectedPlayModeProvider) == PlayMode.solo &&
-                  currentIndex == 0) {
+              if (ref.read(selectedPlayModeProvider) == PlayMode.solo && currentIndex == 0) {
                 AppNavigation.pushToSoloExploringHunt(context);
               } else {
                 ref.read(createGameProvider.notifier).nextStep();
@@ -128,9 +126,7 @@ class _ChooseRaceTypeState extends ConsumerState<ChooseRaceType> {
                       ),
                     )
                   : Border.all(width: 1.0, color: kPrimaryColor),
-              color: currentIndex == index
-                  ? kGreenColor
-                  : kPrimaryColor.withValues(alpha: 0.6),
+              color: currentIndex == index ? kGreenColor : kPrimaryColor.withValues(alpha: 0.6),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Row(
@@ -147,17 +143,13 @@ class _ChooseRaceTypeState extends ConsumerState<ChooseRaceType> {
                         size: 17,
                         weight: FontWeight.w500,
                         fontFamily: AppFonts.Fredoka,
-                        color: currentIndex == index
-                            ? kPrimaryColor
-                            : kTertiaryColor,
+                        color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
                         paddingTop: 6,
                       ),
                       MyText(
                         size: 12,
                         text: subtitle,
-                        color: currentIndex == index
-                            ? kPrimaryColor
-                            : kTertiaryColor,
+                        color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
                         paddingTop: 8,
                       ),
                     ],

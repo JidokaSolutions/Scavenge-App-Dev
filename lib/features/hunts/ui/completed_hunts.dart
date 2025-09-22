@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/hunts/ui/completed_hunt_details.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -76,10 +75,10 @@ class CompletedHunts extends StatelessWidget {
                                 text: index == 0
                                     ? '1st Place'
                                     : index == 1
-                                    ? '2nd Place'
-                                    : index == 2
-                                    ? '3rd Place'
-                                    : '${index + 1}th Place',
+                                        ? '2nd Place'
+                                        : index == 2
+                                            ? '3rd Place'
+                                            : '${index + 1}th Place',
                                 size: 12,
                                 color: kGreenColor,
                                 weight: FontWeight.w600,

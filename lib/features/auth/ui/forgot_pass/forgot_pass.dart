@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/routes/app_navigation.dart';
@@ -9,7 +7,6 @@ import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_field_widget.dart';
-
 
 class ForgotPassword extends StatelessWidget {
   const ForgotPassword({super.key});
@@ -61,11 +58,9 @@ class _ForgotPassword extends StatelessWidget {
             AuthHeading(
               showLogo: false,
               title: 'Forgot Password?',
-              subTitle:
-                  "Enter your email and we'll send you a 6-digit code straight to your inbox to verify it's really you!",
+              subTitle: "Enter your email and we'll send you a 6-digit code straight to your inbox to verify it's really you!",
             ),
             MyTextField(hintText: 'Loisbecket@gmail.com', marginBottom: 25),
-
             MyButton(
               buttonText: 'Send',
               onTap: () {

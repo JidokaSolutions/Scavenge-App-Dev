@@ -1,14 +1,12 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/app.dart';
-import 'package:scavenge_hunt/features/hunts/ui/completed_tasks.dart';
-import 'package:scavenge_hunt/features/hunts/ui/team_flash.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
@@ -81,8 +79,7 @@ class CompletedHuntDetails extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     Row(
                                       children: [
@@ -118,8 +115,7 @@ class CompletedHuntDetails extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     Row(
                                       children: [
@@ -156,7 +152,6 @@ class CompletedHuntDetails extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
@@ -229,7 +224,6 @@ class CompletedHuntDetails extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
@@ -369,7 +363,6 @@ class CompletedHuntDetails extends StatelessWidget {
                 ),
               ),
             ),
-
             SizedBox(height: 16),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),

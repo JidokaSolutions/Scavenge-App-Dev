@@ -41,8 +41,7 @@ class CustomTile extends StatelessWidget {
             Expanded(
               child: MyText(text: title, size: 16, weight: FontWeight.w600),
             ),
-            trailing ??
-                Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 18),
+            trailing ?? Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 18),
           ],
         ),
       ),

@@ -12,9 +12,7 @@ Future<bool?> showAlertDialog({
   bool isDestructive = false,
   String? routeName,
 }) {
-  if (kIsWeb ||
-      defaultTargetPlatform != TargetPlatform.iOS &&
-          defaultTargetPlatform != TargetPlatform.macOS) {
+  if (kIsWeb || defaultTargetPlatform != TargetPlatform.iOS && defaultTargetPlatform != TargetPlatform.macOS) {
     return showDialog(
       context: context,
       barrierDismissible: false,
@@ -57,4 +55,3 @@ Future<bool?> showAlertDialog({
     ),
   );
 }
-

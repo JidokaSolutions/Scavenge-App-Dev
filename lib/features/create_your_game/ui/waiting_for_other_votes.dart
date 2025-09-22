@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:gradient_borders/box_borders/gradient_box_border.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
@@ -8,7 +7,7 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
-import 'package:scavenge_hunt/features/leaderboard/ui/leaderboard.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
@@ -160,7 +159,6 @@ class WaitingForOtherVotes extends StatelessWidget {
                                 ),
                               ),
                             ),
-
                             Positioned(
                               top: 0,
                               right: -18,

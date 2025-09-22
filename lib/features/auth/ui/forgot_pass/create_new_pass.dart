@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_images.dart';
@@ -60,8 +59,7 @@ class _CreateNewPassword extends StatelessWidget {
             AuthHeading(
               showLogo: false,
               title: 'Create New Password',
-              subTitle:
-                  "Set your new password. Make sure it's strong and memorable.",
+              subTitle: "Set your new password. Make sure it's strong and memorable.",
             ),
             MyTextField(
               hintText: 'Password',

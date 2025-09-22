@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -10,7 +9,8 @@ import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/features/players/ui/view_player_profile.dart';
+
+import '../../../core/routes/app_navigation.dart';
 
 class ViewFriends extends StatelessWidget {
   const ViewFriends({super.key});
@@ -117,7 +117,6 @@ class ViewFriends extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-
                                 Expanded(
                                   child: Container(
                                     height: 30,
@@ -154,7 +153,6 @@ class ViewFriends extends StatelessWidget {
                 return SizedBox(height: 12);
               },
             ),
-
             MyText(
               paddingTop: 24,
               text: 'Friend Requests',
@@ -204,8 +202,8 @@ class ViewFriends extends StatelessWidget {
                                   color: index % 3 == 0
                                       ? kGreenColor
                                       : index % 3 == 1
-                                      ? kSecondaryColor
-                                      : kTertiaryColor.withValues(alpha: .5),
+                                          ? kSecondaryColor
+                                          : kTertiaryColor.withValues(alpha: .5),
                                 ),
                                 Expanded(
                                   child: MyText(
@@ -213,8 +211,8 @@ class ViewFriends extends StatelessWidget {
                                     text: index % 3 == 0
                                         ? 'Online'
                                         : index % 3 == 1
-                                        ? 'In Hunt'
-                                        : 'Offline',
+                                            ? 'In Hunt'
+                                            : 'Offline',
                                     size: 12,
                                   ),
                                 ),

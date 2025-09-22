@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:scavenge_hunt/features/friends/data/models/friend_models.dart';
+
 import '../../../../core/network/api_client.dart';
-import '../../../auth/data/models/user_models.dart';
 import '../datasources/friends_api_service.dart';
 
 final friendsApiServiceProvider = Provider<FriendsApiService>((ref) {

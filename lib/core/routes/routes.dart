@@ -1,54 +1,54 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../features/auth/ui/auth_wrapper.dart';
-import '../../features/auth/ui/login.dart';
-import '../../features/landing/ui/splash_screen.dart';
-import '../../features/landing/ui/get_started.dart';
-import '../../features/landing/ui/home.dart';
-import '../../features/landing/ui/location_permission.dart';
-import '../../features/auth/ui/sign_up/sign_up.dart';
-import '../../features/profile/ui/profile.dart';
-import '../../features/profile/ui/edit_profile.dart';
-import '../../features/friends/ui/view_friends.dart';
-import '../../features/friends/ui/add_new_friend.dart';
-import '../../features/players/ui/view_player_profile.dart';
-import '../../features/leaderboard/ui/leaderboard.dart';
-import '../../features/create_your_game/ui/create_your_game.dart';
-import '../../features/create_your_game/ui/choose_game_type.dart';
-import '../../features/create_your_game/ui/choose_play_mode.dart';
-import '../../features/create_your_game/ui/choose_race_type.dart';
-import '../../features/create_your_game/ui/invite_friends.dart';
-import '../../features/create_your_game/ui/waiting_for_players.dart';
-import '../../features/create_your_game/ui/waiting_for_other_votes.dart';
-import '../../features/create_your_game/ui/chat_with_friends.dart';
-import '../../features/join_game/ui/join_game.dart';
-import '../../features/hunts/ui/completed_hunts.dart';
-import '../../features/hunts/ui/completed_hunt_details.dart';
-import '../../features/hunts/ui/completed_tasks.dart';
-import '../../features/hunts/ui/completed_task_details.dart';
-import '../../features/hunts/ui/team_flash.dart';
+import '../../features/auth/ui/forgot_pass/create_new_pass.dart';
 // Auth pages
 import '../../features/auth/ui/forgot_pass/forgot_pass.dart';
 import '../../features/auth/ui/forgot_pass/otp_verification.dart';
-import '../../features/auth/ui/forgot_pass/create_new_pass.dart';
+import '../../features/auth/ui/login.dart';
+import '../../features/auth/ui/sign_up/sign_up.dart';
+import '../../features/create_your_game/ui/chat_with_friends.dart';
+import '../../features/create_your_game/ui/choose_game_type.dart';
+import '../../features/create_your_game/ui/choose_play_mode.dart';
+import '../../features/create_your_game/ui/choose_race_type.dart';
+import '../../features/create_your_game/ui/create_your_game.dart';
+import '../../features/create_your_game/ui/invite_friends.dart';
 // Solo game pages
 import '../../features/create_your_game/ui/solo/solo_exploring_hunt.dart';
-import '../../features/create_your_game/ui/solo/solo_time_base_hunt.dart';
-import '../../features/create_your_game/ui/solo/solo_hunt_details.dart';
 import '../../features/create_your_game/ui/solo/solo_game_checklist.dart';
+import '../../features/create_your_game/ui/solo/solo_hunt_details.dart';
 import '../../features/create_your_game/ui/solo/solo_racing_hunt_details.dart';
-// With friends game pages
-import '../../features/create_your_game/ui/with_friends/with_friends.dart';
-import '../../features/create_your_game/ui/with_friends/view_team_progress.dart';
-import '../../features/create_your_game/ui/with_friends/game_task_details.dart';
-import '../../features/create_your_game/ui/with_friends/upload_evidence.dart';
-import '../../features/create_your_game/ui/with_friends/check_evidence_accuracy.dart';
-import '../../features/create_your_game/ui/with_friends/team_member_details.dart';
+import '../../features/create_your_game/ui/solo/solo_time_base_hunt.dart';
+import '../../features/create_your_game/ui/voting/judge_base_voting.dart';
 // Voting pages
 import '../../features/create_your_game/ui/voting/time_base_voting.dart';
-import '../../features/create_your_game/ui/voting/judge_base_voting.dart';
+import '../../features/create_your_game/ui/waiting_for_other_votes.dart';
+import '../../features/create_your_game/ui/waiting_for_players.dart';
+import '../../features/create_your_game/ui/with_friends/check_evidence_accuracy.dart';
+import '../../features/create_your_game/ui/with_friends/game_task_details.dart';
+import '../../features/create_your_game/ui/with_friends/team_member_details.dart';
+import '../../features/create_your_game/ui/with_friends/upload_evidence.dart';
+import '../../features/create_your_game/ui/with_friends/view_team_progress.dart';
+// With friends game pages
+import '../../features/create_your_game/ui/with_friends/with_friends.dart';
+import '../../features/friends/ui/add_new_friend.dart';
+import '../../features/friends/ui/view_friends.dart';
+import '../../features/hunts/ui/completed_hunt_details.dart';
+import '../../features/hunts/ui/completed_hunts.dart';
+import '../../features/hunts/ui/completed_task_details.dart';
+import '../../features/hunts/ui/completed_tasks.dart';
+import '../../features/hunts/ui/team_flash.dart';
+import '../../features/join_game/ui/join_game.dart';
+import '../../features/landing/ui/get_started.dart';
+import '../../features/landing/ui/home.dart';
+import '../../features/landing/ui/location_permission.dart';
+import '../../features/landing/ui/splash_screen.dart';
+import '../../features/leaderboard/ui/leaderboard.dart';
+import '../../features/players/ui/view_player_profile.dart';
+import '../../features/profile/ui/edit_profile.dart';
+import '../../features/profile/ui/profile.dart';
 // Location page import temporarily removed - needs to be fixed
 
 class AppRoutes {
@@ -81,16 +81,19 @@ class AppRoutes {
   static const String completedTaskDetails = '/completed-task-details';
   static const String teamFlash = '/team-flash';
   static const String location = '/location';
+
   // Auth routes
   static const String forgotPassword = '/forgot-password';
   static const String otpVerification = '/otp-verification';
   static const String createNewPassword = '/create-new-password';
+
   // Solo game routes
   static const String soloExploringHunt = '/solo-exploring-hunt';
   static const String soloTimeBaseHunt = '/solo-time-base-hunt';
   static const String soloHuntDetails = '/solo-hunt-details';
   static const String soloGameCheckList = '/solo-game-checklist';
   static const String soloRacingHuntDetails = '/solo-racing-hunt-details';
+
   // With friends game routes
   static const String withFriends = '/with-friends';
   static const String viewTeamProgress = '/view-team-progress';
@@ -98,6 +101,7 @@ class AppRoutes {
   static const String uploadEvidence = '/upload-evidence';
   static const String checkEvidenceAccuracy = '/check-evidence-accuracy';
   static const String teamMemberDetails = '/team-member-details';
+
   // Voting routes
   static const String timeBaseVoting = '/time-base-voting';
   static const String judgeBaseVoting = '/judge-base-voting';

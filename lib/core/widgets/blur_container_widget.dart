@@ -1,4 +1,5 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
@@ -11,10 +12,12 @@ class BlurredContainer extends StatelessWidget {
     this.bgColor,
     this.radius,
   });
+
   final Widget child;
   final double? height;
   final Color? bgColor;
   final double? radius;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(

@@ -1,8 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../ui/choose_game_type.dart';
 import '../ui/choose_play_mode.dart';
 import '../ui/choose_race_type.dart';
-import '../ui/choose_game_type.dart';
 import '../ui/invite_friends.dart';
 import 'create_game_state.dart';
 
@@ -33,9 +34,7 @@ class CreateGameNotifier extends StateNotifier<CreateGameState> {
   }
 
   void nextStep() {
-    final maxSteps = (state.selectedPlayMode == PlayMode.solo)
-        ? state.soloLabels.length - 1
-        : state.withFriendsLabels.length - 1;
+    final maxSteps = (state.selectedPlayMode == PlayMode.solo) ? state.soloLabels.length - 1 : state.withFriendsLabels.length - 1;
 
     if (state.currentStep < maxSteps) {
       state = state.copyWith(currentStep: state.currentStep + 1);

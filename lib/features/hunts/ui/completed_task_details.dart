@@ -1,11 +1,11 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/app.dart';
 import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -71,8 +71,7 @@ class CompletedTaskDetails extends StatelessWidget {
                       ),
                       MyText(
                         paddingTop: 10,
-                        text:
-                            'Take a photo of any aircraft you can find. Could be at an airport, in the sky, or even a model plane!',
+                        text: 'Take a photo of any aircraft you can find. Could be at an airport, in the sky, or even a model plane!',
                         size: 12,
                         weight: FontWeight.w600,
                         lineHeight: 1.5,
@@ -145,13 +144,12 @@ class CompletedTaskDetails extends StatelessWidget {
                         shrinkWrap: true,
                         padding: AppSizes.ZERO,
                         physics: BouncingScrollPhysics(),
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 12,
-                              mainAxisExtent: 140,
-                            ),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 12,
+                          mainAxisSpacing: 12,
+                          mainAxisExtent: 140,
+                        ),
                         itemCount: 10,
                         itemBuilder: (BuildContext context, int index) {
                           return CommonImageView(

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_constants.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
@@ -9,7 +10,6 @@ import 'package:scavenge_hunt/core/widgets/common_image_view_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:scavenge_hunt/core/constants/app_constants.dart';
 
 class Leaderboard extends StatelessWidget {
   const Leaderboard({super.key});
@@ -103,7 +103,6 @@ class Leaderboard extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 Column(
                   children: [
                     Container(
@@ -176,7 +175,6 @@ class Leaderboard extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 Column(
                   children: [
                     SizedBox(height: 40),
@@ -252,7 +250,6 @@ class Leaderboard extends StatelessWidget {
                 ),
               ],
             ),
-
             SizedBox(height: 40),
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
@@ -269,7 +266,6 @@ class Leaderboard extends StatelessWidget {
                     shrinkWrap: true,
                     padding: AppSizes.ZERO,
                     physics: BouncingScrollPhysics(),
-
                     itemBuilder: (context, index) {
                       return BlurredContainer(
                         radius: 12,

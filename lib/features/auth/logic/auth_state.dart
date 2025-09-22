@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 import '../data/models/auth_models.dart';
 
 enum AuthStatus {
@@ -34,7 +35,9 @@ class AuthState extends Equatable {
   }
 
   bool get isAuthenticated => status == AuthStatus.authenticated;
+
   bool get isLoading => status == AuthStatus.loading;
+
   bool get hasError => status == AuthStatus.error;
 
   @override

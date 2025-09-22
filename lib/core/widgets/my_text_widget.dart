@@ -59,8 +59,7 @@ class MyText extends StatelessWidget {
         onTap: onTap,
         child: Text(
           "$text",
-          style:
-              textStyle ??
+          style: textStyle ??
               TextStyle(
                 fontSize: size,
                 color: color ?? kTertiaryColor,

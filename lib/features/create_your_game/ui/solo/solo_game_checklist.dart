@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_hunt_details.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/upload_evidence.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
@@ -50,8 +48,7 @@ class _SoloGameCheckListState extends State<SoloGameCheckList> {
               animateToInitialPercent: false,
               restartAnimation: false,
               lineHeight: 22.0,
-              percent:
-                  _taskCompleted.where((e) => e).length / _taskCompleted.length,
+              percent: _taskCompleted.where((e) => e).length / _taskCompleted.length,
               padding: AppSizes.HORIZONTAL,
               linearGradient: LinearGradient(
                 colors: [kPrimaryColor, Color(0xff2BFF84)],
@@ -62,8 +59,7 @@ class _SoloGameCheckListState extends State<SoloGameCheckList> {
               barRadius: const Radius.circular(50),
               animation: true,
               center: MyText(
-                text:
-                    '${_taskCompleted.where((e) => e).length}/${_taskCompleted.length} Task Completed',
+                text: '${_taskCompleted.where((e) => e).length}/${_taskCompleted.length} Task Completed',
                 size: 14,
                 weight: FontWeight.w500,
                 fontFamily: AppFonts.Fredoka,
@@ -105,8 +101,7 @@ class _SoloGameCheckListState extends State<SoloGameCheckList> {
                                   GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        _taskCompleted[index] =
-                                            !_taskCompleted[index];
+                                        _taskCompleted[index] = !_taskCompleted[index];
                                       });
                                     },
                                     child: AnimatedContainer(
@@ -190,10 +185,12 @@ class _SoloGameCheckListState extends State<SoloGameCheckList> {
               child: MyButton(
                 buttonText: 'End Hunt',
                 onTap: () {
-                  _taskCompleted.contains(true) ? showDialog(
-                    context: context,
-                    builder: (context) => _EndHunt(),
-                  ) : null;
+                  _taskCompleted.contains(true)
+                      ? showDialog(
+                          context: context,
+                          builder: (context) => _EndHunt(),
+                        )
+                      : null;
                 },
                 isDisabled: !_taskCompleted.contains(true),
               ),
@@ -350,8 +347,7 @@ class _EndHunt extends StatelessWidget {
                       paddingBottom: 10,
                     ),
                     MyText(
-                      text:
-                          'Ending the hunt will lock all submissions and start the final review phase.',
+                      text: 'Ending the hunt will lock all submissions and start the final review phase.',
                       size: 13,
                       textAlign: TextAlign.center,
                       weight: FontWeight.w500,

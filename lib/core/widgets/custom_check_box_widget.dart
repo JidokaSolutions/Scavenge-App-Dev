@@ -30,9 +30,7 @@ class CustomCheckBox extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
               width: 1.0,
-              color: isActive
-                  ? kSecondaryColor
-                  : unSelectedColor ?? kBorderColor,
+              color: isActive ? kSecondaryColor : unSelectedColor ?? kBorderColor,
             ),
             shape: BoxShape.circle,
           ),
@@ -69,9 +67,7 @@ class CustomCheckBox extends StatelessWidget {
             color: isActive ? kSecondaryColor : Colors.transparent,
             borderRadius: BorderRadius.circular(4),
           ),
-          child: !isActive
-              ? SizedBox()
-              : Icon(Icons.check, size: 12, color: kTertiaryColor),
+          child: !isActive ? SizedBox() : Icon(Icons.check, size: 12, color: kTertiaryColor),
         ),
       );
     }

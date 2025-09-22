@@ -20,14 +20,14 @@ class UserCreate {
   });
 
   Map<String, dynamic> toJson() => {
-    'firstname': firstname,
-    'lastname': lastname,
-    'email': email,
-    if (dob != null) 'dob': dob,
-    if (phone != null) 'phone': phone,
-    'access': access.name,
-    'password': password,
-  };
+        'firstname': firstname,
+        'lastname': lastname,
+        'email': email,
+        if (dob != null) 'dob': dob,
+        if (phone != null) 'phone': phone,
+        'access': access.name,
+        'password': password,
+      };
 }
 
 class UserOut {
@@ -42,24 +42,24 @@ class UserOut {
   UserOut({required this.firstname, required this.lastname, required this.email, this.dob, this.phone, this.access = UserAccess.user, required this.id});
 
   factory UserOut.fromJson(Map<String, dynamic> json) => UserOut(
-    firstname: json['firstname'],
-    lastname: json['lastname'],
-    email: json['email'],
-    dob: json['dob'],
-    phone: json['phone'],
-    access: UserAccess.values.firstWhere((e) => e.name == json['access'], orElse: () => UserAccess.user),
-    id: json['id'],
-  );
+        firstname: json['firstname'],
+        lastname: json['lastname'],
+        email: json['email'],
+        dob: json['dob'],
+        phone: json['phone'],
+        access: UserAccess.values.firstWhere((e) => e.name == json['access'], orElse: () => UserAccess.user),
+        id: json['id'],
+      );
 
   Map<String, dynamic> toJson() => {
-    'firstname': firstname,
-    'lastname': lastname,
-    'email': email,
-    if (dob != null) 'dob': dob,
-    if (phone != null) 'phone': phone,
-    'access': access.name,
-    'id': id,
-  };
+        'firstname': firstname,
+        'lastname': lastname,
+        'email': email,
+        if (dob != null) 'dob': dob,
+        if (phone != null) 'phone': phone,
+        'access': access.name,
+        'id': id,
+      };
 }
 
 class UserUpdate {

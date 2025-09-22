@@ -77,9 +77,7 @@ class CustomDropDown extends StatelessWidget {
                         size: 14,
                         maxLines: 1,
                         textOverflow: TextOverflow.ellipsis,
-                        color: selectedValue == hint
-                            ? kBorderColor
-                            : kTertiaryColor,
+                        color: selectedValue == hint ? kBorderColor : kTertiaryColor,
                       ),
                     ),
                     // Image.asset(Assets.imagesDropdownIcon, height: 18),

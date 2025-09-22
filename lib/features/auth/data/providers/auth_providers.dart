@@ -1,9 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../../core/network/api_client.dart';
 import '../../../../core/providers/shared_prefs_provider.dart';
-import '../datasources/auth_api_service.dart';
 import '../../logic/auth_notifier.dart';
 import '../../logic/auth_state.dart';
+import '../datasources/auth_api_service.dart';
 
 final authApiServiceProvider = Provider<AuthApiService>((ref) {
   final apiHandler = ref.read(apiHandlerProvider);

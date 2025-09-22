@@ -23,19 +23,20 @@ AppBar simpleAppBar({
     centerTitle: centerTitle,
     leading: haveLeading
         ? leading ??
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: onLeadingTap ?? () {
-                      if (context != null) {
-                        AppNavigation.pop(context);
-                      }
-                    },
-                    child: Image.asset(Assets.imagesArrowBack, height: 20),
-                  ),
-                ],
-              )
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: onLeadingTap ??
+                      () {
+                        if (context != null) {
+                          AppNavigation.pop(context);
+                        }
+                      },
+                  child: Image.asset(Assets.imagesArrowBack, height: 20),
+                ),
+              ],
+            )
         : null,
     title: MyText(
       text: title ?? '',

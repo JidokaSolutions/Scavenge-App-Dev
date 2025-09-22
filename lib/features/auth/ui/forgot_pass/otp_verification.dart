@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import '../../../../core/routes/app_navigation.dart';
 import 'package:pinput/pinput.dart';
+import 'package:scavenge_hunt/core/constants/app_colors.dart';
+import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/headings_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
-
-import 'package:scavenge_hunt/core/constants/app_colors.dart';
-import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
-import 'create_new_pass.dart';
+import '../../../../core/routes/app_navigation.dart';
 
 class OTPVerification extends StatelessWidget {
   const OTPVerification({super.key});

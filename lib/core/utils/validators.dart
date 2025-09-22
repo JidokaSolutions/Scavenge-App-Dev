@@ -94,8 +94,7 @@ class Validators {
     final age = now.year - date.year;
 
     // Check if they haven't had their birthday yet this year
-    final hasHadBirthdayThisYear = now.month > date.month ||
-        (now.month == date.month && now.day >= date.day);
+    final hasHadBirthdayThisYear = now.month > date.month || (now.month == date.month && now.day >= date.day);
 
     final actualAge = hasHadBirthdayThisYear ? age : age - 1;
 

@@ -52,7 +52,6 @@ Future<void> main() async {
     );
   });
 
-
   // Use Sentry implementation
   logger = MySentryLogger();
 }
@@ -63,7 +62,6 @@ Future<void> main() async {
 //! # Build release artifacts
 //+ flutter build appbundle --flavor prod lib/main_prod.dart
 //+ flutter build apk --flavor prod lib/main_prod.dart
-
 
 //! Shorebird
 //+ shorebird release android  --artifact apk --target ./lib/main_prod.dart --flavor prod --flutter-version 3.32.8

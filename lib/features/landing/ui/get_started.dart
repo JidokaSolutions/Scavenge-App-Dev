@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
@@ -5,7 +6,6 @@ import 'package:scavenge_hunt/core/constants/app_styling.dart';
 import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
-import 'package:flutter/material.dart';
 
 class GetStarted extends StatelessWidget {
   const GetStarted({super.key});

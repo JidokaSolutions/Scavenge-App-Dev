@@ -65,5 +65,6 @@ class LocationModel {
   }
 
   bool get hasData => latitude != null && longitude != null;
+
   bool get hasError => error != null;
 }

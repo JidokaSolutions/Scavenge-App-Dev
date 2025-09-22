@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
@@ -51,15 +50,9 @@ class MyButton extends StatelessWidget {
                   offset: Offset(0, 4),
                 ),
               ],
-        border: isDisabled
-            ? null
-            : Border.all(width: 2.0, color: kPrimaryColor),
+        border: isDisabled ? null : Border.all(width: 2.0, color: kPrimaryColor),
         borderRadius: BorderRadius.circular(radius ?? 50),
-        color:
-            bgColor ??
-            (isDisabled
-                ? kSecondaryColor.withValues(alpha: 0.3)
-                : kSecondaryColor),
+        color: bgColor ?? (isDisabled ? kSecondaryColor.withValues(alpha: 0.3) : kSecondaryColor),
       ),
       child: Material(
         color: Colors.transparent,
@@ -68,19 +61,14 @@ class MyButton extends StatelessWidget {
           splashColor: kTertiaryColor.withValues(alpha: 0.1),
           highlightColor: kTertiaryColor.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(radius ?? 50),
-          child:
-              child ??
+          child: child ??
               Center(
                 child: MyText(
                   text: buttonText,
                   size: textSize ?? 16,
                   fontFamily: AppFonts.Fredoka,
                   weight: weight ?? FontWeight.w500,
-                  color:
-                      textColor ??
-                      (isDisabled
-                          ? kTertiaryColor.withValues(alpha: 0.6)
-                          : kTertiaryColor),
+                  color: textColor ?? (isDisabled ? kTertiaryColor.withValues(alpha: 0.6) : kTertiaryColor),
                 ),
               ),
         ),

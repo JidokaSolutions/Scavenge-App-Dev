@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../../../../core/widgets/my_button_widget.dart';
-import '../../../../core/widgets/my_text_widget.dart';
 import '../../data/providers/auth_providers.dart';
 
 class LogoutButton extends ConsumerWidget {
@@ -27,9 +27,7 @@ class LogoutButton extends ConsumerWidget {
               onPressed?.call();
             },
       isDisabled: authState.isLoading,
-      child: authState.isLoading
-          ? const CircularProgressIndicator(color: Colors.white)
-          : null,
+      child: authState.isLoading ? const CircularProgressIndicator(color: Colors.white) : null,
     );
   }
 }
