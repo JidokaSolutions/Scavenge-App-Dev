@@ -61,6 +61,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
       } else if (next.isAuthenticated) {
         // Navigate to home screen
         // Navigation handled by AuthWrapper
+        AppNavigation.pushToHome(context);
       }
     });
 
@@ -140,7 +141,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
               buttonText: 'Sign In',
               onTap: authState.isLoading ? () {} : _handleLogin,
               isDisabled: authState.isLoading,
-              child: authState.isLoading ? const CircularProgressIndicator(color: Colors.white) : null,
+              child: authState.isLoading ? Center(child: const CircularProgressIndicator(color: Colors.white)) : null,
             ),
             SizedBox(height: AppSizes.HEIGHT_20),
             const SocialLoginWidget(),
