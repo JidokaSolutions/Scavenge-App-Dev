@@ -224,11 +224,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       // Auth routes
       GoRoute(
         path: AppRoutes.forgotPassword,
-        builder: (context, state) => const ForgotPass(),
+        builder: (context, state) => const ForgotPassword(),
       ),
       GoRoute(
         path: AppRoutes.otpVerification,
-        builder: (context, state) => const OtpVerification(),
+        builder: (context, state) => const OTPVerification(),
       ),
       GoRoute(
         path: AppRoutes.createNewPassword,
@@ -274,7 +274,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: AppRoutes.checkEvidenceAccuracy,
-        builder: (context, state) => const CheckEvidenceAccuracy(),
+        builder: (context, state) => CheckEvidenceAccuracy(),
       ),
       GoRoute(
         path: AppRoutes.teamMemberDetails,
@@ -283,11 +283,11 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       // Voting routes
       GoRoute(
         path: AppRoutes.timeBaseVoting,
-        builder: (context, state) => const TimeBaseVoting(),
+        builder: (context, state) => TimeBaseVoting(),
       ),
       GoRoute(
         path: AppRoutes.judgeBaseVoting,
-        builder: (context, state) => const JudgeBaseVoting(),
+        builder: (context, state) => JudgeBaseVoting(),
       ),
       // TODO: Fix LocationPage import and route
       // GoRoute(
