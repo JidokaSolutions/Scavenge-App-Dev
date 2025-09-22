@@ -43,7 +43,7 @@ import '../../features/hunts/ui/team_flash.dart';
 import '../../features/join_game/ui/join_game.dart';
 import '../../features/landing/ui/get_started.dart';
 import '../../features/landing/ui/home.dart';
-import '../../features/landing/ui/location_permission.dart';
+import '../widgets/dialogs/location_permission.dart';
 import '../../features/landing/ui/splash_screen.dart';
 import '../../features/leaderboard/ui/leaderboard.dart';
 import '../../features/players/ui/view_player_profile.dart';
@@ -137,7 +137,7 @@ final goRouterProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: AppRoutes.locationPermission,
-        builder: (context, state) => const LocationPermission(),
+        builder: (context, state) => const LocationPermissionDialogWidget(),
       ),
       GoRoute(
         path: AppRoutes.profile,

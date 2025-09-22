@@ -8,8 +8,8 @@ import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
-class LocationPermission extends StatelessWidget {
-  const LocationPermission({super.key});
+class LocationPermissionDialogWidget extends StatelessWidget {
+  const LocationPermissionDialogWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

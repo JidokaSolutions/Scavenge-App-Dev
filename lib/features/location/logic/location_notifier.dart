@@ -42,16 +42,8 @@ class LocationNotifier extends StateNotifier<LocationModel> {
       // Stop any existing stream
       await stopLocationStream();
 
-      // Check and request permission
+      // Check and request permission (includes location service check)
       await _checkLocationPermission();
-
-      // Check if location services are enabled
-      final serviceEnabled = await Geolocator.isLocationServiceEnabled();
-      if (!serviceEnabled) {
-        state = state.copyWith(error: "Please enable location services");
-
-        throw Exception('Location services are disabled');
-      }
 
       // Start location stream
       _positionStreamSubscription = Geolocator.getPositionStream(
@@ -86,14 +78,56 @@ class LocationNotifier extends StateNotifier<LocationModel> {
   }
 
   Future<void> _checkLocationPermission() async {
-    final permission = await Permission.location.status;
+    // Check if location services are enabled first
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      throw Exception('Location services are disabled. Please enable location services in your device settings.');
+    }
 
-    if (permission.isDenied) {
-      final requestedPermission = await Permission.location.request();
+    // Get current permission status
+    LocationPermission permission = await Geolocator.checkPermission();
 
-      if (requestedPermission.isDenied || requestedPermission.isPermanentlyDenied) {
-        throw Exception('Location permission denied');
-      }
+    // Handle different permission states
+    switch (permission) {
+      case LocationPermission.denied:
+        // Request permission for the first time
+        permission = await Geolocator.requestPermission();
+
+        // Check the result of the permission request
+        if (permission == LocationPermission.denied) {
+          throw Exception('Location permission was denied. Please grant location access to use this feature.');
+        }
+
+        if (permission == LocationPermission.deniedForever) {
+          throw Exception('Location permission was permanently denied. Please enable location access in your device settings.');
+        }
+        break;
+
+      case LocationPermission.deniedForever:
+        // Permission permanently denied, guide user to settings
+        throw Exception('Location permission was permanently denied. Please go to Settings > Apps > Scavenge Hunt > Permissions and enable Location access.');
+
+      case LocationPermission.whileInUse:
+      case LocationPermission.always:
+        // Permission already granted, continue
+        break;
+
+      case LocationPermission.unableToDetermine:
+        // Fallback for older Android versions or edge cases
+        try {
+          permission = await Geolocator.requestPermission();
+          if (permission == LocationPermission.denied || permission == LocationPermission.deniedForever) {
+            throw Exception('Unable to determine location permission status. Please check your device settings.');
+          }
+        } catch (e) {
+          throw Exception('Unable to request location permission. Please enable location access manually in your device settings.');
+        }
+        break;
+    }
+
+    // Final validation - ensure we have the required permission
+    if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
+      throw Exception('Location permission is required to use this feature. Current status: ${permission.name}');
     }
   }
 

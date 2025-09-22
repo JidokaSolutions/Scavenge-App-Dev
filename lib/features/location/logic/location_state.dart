@@ -1,36 +1,4 @@
-// class UserLocation {
-//   final double? latitude;
-//   final double? longitude;
-//   final bool isLoading;
-//   final String? errorMessage;
-//
-//   const UserLocation({this.latitude, this.longitude, this.isLoading = false, this.errorMessage});
-//
-//   /// Initial empty state
-//   factory UserLocation.initial() => const UserLocation();
-//
-//   /// CopyWith for updating state
-//   UserLocation copyWith({double? latitude, double? longitude, bool? isLoading, String? errorMessage}) {
-//     return UserLocation(
-//       latitude: latitude ?? this.latitude,
-//       longitude: longitude ?? this.longitude,
-//       isLoading: isLoading ?? this.isLoading,
-//       errorMessage: errorMessage,
-//       //
-//     );
-//   }
-//
-//   @override
-//   String toString() {
-//     if (isLoading) return "⏳ Loading location...";
-//     if (errorMessage != null) return "❌ Error: $errorMessage";
-//     if (latitude != null && longitude != null) {
-//       return "📍 Lat: $latitude, Lng: $longitude";
-//     }
-//     return "📭 No location yet";
-//   }
-// }
-// models/location_model.dart
+
 class LocationModel {
   final double? latitude;
   final double? longitude;
