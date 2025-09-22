@@ -6,7 +6,7 @@ class CustomContainer extends StatelessWidget {
   final Widget child;
   final String? bgImage;
 
-  const CustomContainer({Key? key, required this.child, this.bgImage}) : super(key: key);
+  const CustomContainer({super.key, required this.child, this.bgImage});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class CustomContainer extends StatelessWidget {
 class CustomContainer2 extends StatelessWidget {
   final Widget child;
 
-  const CustomContainer2({Key? key, required this.child}) : super(key: key);
+  const CustomContainer2({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {

@@ -58,7 +58,7 @@ class MyText extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Text(
-          "$text",
+          text,
           style: textStyle ??
               TextStyle(
                 fontSize: size,

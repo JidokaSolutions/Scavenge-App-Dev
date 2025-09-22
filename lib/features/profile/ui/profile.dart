@@ -186,6 +186,7 @@ class Profile extends StatelessWidget {
                         children: [
                           Expanded(
                             child: BlurredContainer(
+                              radius: 12,
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
@@ -216,12 +217,12 @@ class Profile extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              radius: 12,
                             ),
                           ),
                           SizedBox(width: 12),
                           Expanded(
                             child: BlurredContainer(
+                              radius: 12,
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
@@ -252,7 +253,6 @@ class Profile extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              radius: 12,
                             ),
                           ),
                         ],

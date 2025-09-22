@@ -146,7 +146,7 @@ class Home extends StatelessWidget {
 }
 
 class _ChooseYourAdventure extends StatelessWidget {
-  const _ChooseYourAdventure({super.key});
+  const _ChooseYourAdventure();
 
   @override
   Widget build(BuildContext context) {

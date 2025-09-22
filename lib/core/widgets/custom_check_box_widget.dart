@@ -4,13 +4,13 @@ import '../constants/app_colors.dart';
 
 // ignore: must_be_immutable
 class CustomCheckBox extends StatelessWidget {
-  CustomCheckBox({
-    Key? key,
+  const CustomCheckBox({
+    super.key,
     required this.isActive,
     required this.onTap,
     this.unSelectedColor,
     this.isRadio = false,
-  }) : super(key: key);
+  });
 
   final bool isActive;
   final bool? isRadio;

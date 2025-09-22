@@ -101,7 +101,7 @@ class UploadEvidence extends StatelessWidget {
               ),
               itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                if (index == 3)
+                if (index == 3) {
                   return Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
@@ -124,7 +124,7 @@ class UploadEvidence extends StatelessWidget {
                       ],
                     ),
                   );
-                else
+                } else {
                   return Stack(
                     clipBehavior: Clip.none,
                     children: [
@@ -164,6 +164,7 @@ class UploadEvidence extends StatelessWidget {
                       ),
                     ],
                   );
+                }
               },
             ),
           ],

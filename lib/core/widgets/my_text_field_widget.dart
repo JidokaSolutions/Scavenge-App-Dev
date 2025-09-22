@@ -105,7 +105,7 @@ class MyTextField extends StatelessWidget {
 
 // ignore: must_be_immutable
 class PhoneField extends StatefulWidget {
-  PhoneField({Key? key, this.controller, this.onChanged, this.fillColor}) : super(key: key);
+  PhoneField({super.key, this.controller, this.onChanged, this.fillColor});
 
   TextEditingController? controller;
   ValueChanged<String>? onChanged;
@@ -210,7 +210,7 @@ class _PhoneFieldState extends State<PhoneField> {
                               },
                             );
                           },
-                          text: '${countryFlag}',
+                          text: countryFlag,
                           size: 14,
                           weight: FontWeight.w500,
                         ),

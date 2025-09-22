@@ -79,7 +79,7 @@ class MyButton extends StatelessWidget {
 
 // ignore: must_be_immutable
 class MyBorderButton extends StatelessWidget {
-  MyBorderButton({
+  MyBorderButton({super.key, 
     required this.buttonText,
     required this.onTap,
     this.height = 48,
@@ -127,9 +127,7 @@ class MyBorderButton extends StatelessWidget {
           splashColor: kTertiaryColor.withValues(alpha: 0.1),
           highlightColor: kTertiaryColor.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(radius ?? 50),
-          child: child != null
-              ? child
-              : Center(
+          child: child ?? Center(
                   child: MyText(
                     text: buttonText,
                     size: textSize ?? 16,

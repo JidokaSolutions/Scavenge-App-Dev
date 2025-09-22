@@ -17,7 +17,7 @@ import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class JudgeBaseVoting extends StatefulWidget {
-  JudgeBaseVoting({super.key});
+  const JudgeBaseVoting({super.key});
 
   @override
   State<JudgeBaseVoting> createState() => _JudgeBaseVotingState();

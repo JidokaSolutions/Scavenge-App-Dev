@@ -9,12 +9,12 @@ class CustomTile extends StatelessWidget {
   final Widget? trailing;
 
   const CustomTile({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.title,
     this.onTap,
     this.trailing,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

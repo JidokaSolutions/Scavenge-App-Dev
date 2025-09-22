@@ -168,7 +168,7 @@ class _ChoosePlayModeState extends ConsumerState<ChoosePlayMode> {
 class _StartAlone extends StatelessWidget {
   final VoidCallback onStartGame;
 
-  const _StartAlone({super.key, required this.onStartGame});
+  const _StartAlone({required this.onStartGame});
 
   @override
   Widget build(BuildContext context) {

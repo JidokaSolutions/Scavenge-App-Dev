@@ -7,6 +7,8 @@ import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import '../../../core/constants/app_images.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }

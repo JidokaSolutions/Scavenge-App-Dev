@@ -17,7 +17,7 @@ import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class TimeBaseVoting extends StatefulWidget {
-  TimeBaseVoting({super.key});
+  const TimeBaseVoting({super.key});
 
   @override
   State<TimeBaseVoting> createState() => _TimeBaseVotingState();
@@ -95,7 +95,7 @@ class _TimeBaseVotingState extends State<TimeBaseVoting> {
   }
 
   // Track disqualified state for each team card
-  List<bool> _disqualified = List.generate(4, (_) => false);
+  final List<bool> _disqualified = List.generate(4, (_) => false);
 
   Widget _pictureOfPlane() {
     return ListView(
@@ -529,7 +529,7 @@ class _ThanksForVoteState extends State<_ThanksForVote> {
 class _DisqualifiedTeam extends StatelessWidget {
   final VoidCallback onDisqualify;
 
-  const _DisqualifiedTeam({super.key, required this.onDisqualify});
+  const _DisqualifiedTeam({required this.onDisqualify});
 
   @override
   Widget build(BuildContext context) {

@@ -76,6 +76,7 @@ class CompletedHuntDetails extends StatelessWidget {
                         children: [
                           Expanded(
                             child: BlurredContainer(
+                              radius: 12,
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
@@ -106,12 +107,12 @@ class CompletedHuntDetails extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              radius: 12,
                             ),
                           ),
                           SizedBox(width: 12),
                           Expanded(
                             child: BlurredContainer(
+                              radius: 12,
                               child: Padding(
                                 padding: const EdgeInsets.all(12),
                                 child: Column(
@@ -142,7 +143,6 @@ class CompletedHuntDetails extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              radius: 12,
                             ),
                           ),
                         ],
