@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -8,8 +9,8 @@ import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
 import 'package:scavenge_hunt/app.dart';
-import 'package:scavenge_hunt/core/constants/getx_controller_instances.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/create_game_controller/create_game_controller.dart';
+import 'package:scavenge_hunt/features/create_your_game/logic/create_game_provider.dart';
+import 'package:scavenge_hunt/features/create_your_game/logic/create_game_state.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/chat_with_friends.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/game_task_details.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/with_friends/team_member_details.dart';
@@ -64,9 +65,7 @@ class _WithFriendsState extends State<WithFriends> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color: currentIndex == index
-                                ? kGreenColor
-                                : Colors.transparent,
+                            color: currentIndex == index ? kGreenColor : Colors.transparent,
                             borderRadius: BorderRadius.circular(50),
                           ),
                           alignment: Alignment.center,
@@ -74,25 +73,17 @@ class _WithFriendsState extends State<WithFriends> {
                             text: TextSpan(
                               style: TextStyle(
                                 fontFamily: AppFonts.Nunito,
-                                color: currentIndex == index
-                                    ? kPrimaryColor
-                                    : kTertiaryColor,
+                                color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 12,
                               ),
                               children: [
                                 TextSpan(text: tabLabels[index]),
                                 TextSpan(
-                                  text: currentIndex == index
-                                      ? '/ 10%'
-                                      : ' / 50%',
+                                  text: currentIndex == index ? '/ 10%' : ' / 50%',
                                   style: TextStyle(
-                                    color: currentIndex == index
-                                        ? kPrimaryColor
-                                        : kTertiaryColor,
-                                    fontWeight: currentIndex == index
-                                        ? FontWeight.w700
-                                        : FontWeight.w600,
+                                    color: currentIndex == index ? kPrimaryColor : kTertiaryColor,
+                                    fontWeight: currentIndex == index ? FontWeight.w700 : FontWeight.w600,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -161,18 +152,25 @@ class _MyProgressState extends State<_MyProgress> {
                       fontFamily: AppFonts.Fredoka,
                     ),
                   ),
-                  if (createGameController.selectedGameType ==
-                      GameType.timeBase)
-                    SizedBox(
-                      width: 130,
-                      child: MyBorderButton(
-                        haveShadow: false,
-                        height: 40,
-                        buttonText: 'Time Left: 30:00',
-                        textSize: 14,
-                        onTap: () {},
-                      ),
-                    ),
+                  Consumer(
+                    builder: (context, ref, _) {
+                      final selectedGameType = ref.watch(selectedGameTypeProvider);
+                      if (selectedGameType == GameType.timeBase) {
+                        return SizedBox(
+                          width: 130,
+                          child: MyBorderButton(
+                            haveShadow: false,
+                            height: 40,
+                            buttonText: 'Time Left: 30:00',
+                            textSize: 14,
+                            onTap: () {},
+                          ),
+                        );
+                      } else {
+                        return SizedBox.shrink();
+                      }
+                    },
+                  ),
                   SizedBox(width: 8),
                   SizedBox(
                     width: 95,
@@ -195,7 +193,7 @@ class _MyProgressState extends State<_MyProgress> {
                         ],
                       ),
                       onTap: () {
-                        AppNavigation.pushToChatWithFriends(context);
+                        Get.to(() => ChatWithFriends());
                       },
                     ),
                   ),
@@ -210,12 +208,11 @@ class _MyProgressState extends State<_MyProgress> {
                   haveShadow: false,
                   buttonText: 'View Team Progress',
                   onTap: () {
-                    AppNavigation.pushToViewTeamProgress(context);
+                    Get.to(() => ViewTeamProgress());
                   },
                 ),
               ),
               SizedBox(height: 12),
-
               ListView.separated(
                 itemCount: _taskDescriptions.length,
                 shrinkWrap: true,
@@ -237,8 +234,7 @@ class _MyProgressState extends State<_MyProgress> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    _taskCompleted[index] =
-                                        !_taskCompleted[index];
+                                    _taskCompleted[index] = !_taskCompleted[index];
                                   });
                                 },
                                 child: AnimatedContainer(
@@ -251,9 +247,7 @@ class _MyProgressState extends State<_MyProgress> {
                                       width: 1.0,
                                       color: kGreenColor,
                                     ),
-                                    color: isActive
-                                        ? kGreenColor
-                                        : kPrimaryColor.withValues(alpha: 0.7),
+                                    color: isActive ? kGreenColor : kPrimaryColor.withValues(alpha: 0.7),
                                     borderRadius: BorderRadius.circular(4),
                                   ),
                                   child: !isActive
@@ -285,7 +279,7 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Task detail',
                                   onTap: () {
-                                    AppNavigation.pushToGameTaskDetails(context);
+                                    Get.to(() => GameTaskDetails());
                                   },
                                 ),
                               ),
@@ -297,10 +291,7 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Submit Task',
                                   onTap: () {
-                                    showDialog(
-                                      context: context,
-                                      builder: (context) => _SubmitYourEvidence(),
-                                    );
+                                    Get.dialog(_SubmitYourEvidence());
                                   },
                                 ),
                               ),
@@ -320,10 +311,7 @@ class _MyProgressState extends State<_MyProgress> {
           child: MyButton(
             buttonText: 'End Hunt',
             onTap: () {
-              _taskCompleted.contains(true) ? showDialog(
-                context: context,
-                builder: (context) => _EndHunt(),
-              ) : null;
+              _taskCompleted.contains(true) ? Get.dialog(_EndHunt()) : null;
             },
             isDisabled: !_taskCompleted.contains(true),
           ),
@@ -458,7 +446,6 @@ class _OpponentProgress extends StatelessWidget {
             ),
           ],
         ),
-
         MyText(
           paddingTop: 24,
           text: '12 Opponents',
@@ -476,7 +463,7 @@ class _OpponentProgress extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // TODO: Add TeamMemberDetails route navigation here
+                // Get.to(() => TeamMemberDetails());
               },
               child: Container(
                 padding: const EdgeInsets.all(12),
@@ -504,8 +491,7 @@ class _OpponentProgress extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
+                                  crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
                                     MyText(
                                       text: opponents[index]['teamName'],
@@ -515,8 +501,7 @@ class _OpponentProgress extends StatelessWidget {
                                       paddingBottom: 8,
                                     ),
                                     MyText(
-                                      text:
-                                          '${opponents[index]['completed']} OF ${opponents[index]['totalTasks']} Task Completed',
+                                      text: '${opponents[index]['completed']} OF ${opponents[index]['totalTasks']} Task Completed',
                                       size: 12,
                                       color: kTertiaryColor.withValues(
                                         alpha: 0.8,
@@ -614,7 +599,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            AppNavigation.pop(context);
+                            Get.back();
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -636,7 +621,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyButton(
                       buttonText: '',
                       onTap: () {
-                        AppNavigation.pop(context);
+                        Get.back();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -657,8 +642,8 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyBorderButton(
                       buttonText: '',
                       onTap: () {
-                        AppNavigation.pop(context);
-                        AppNavigation.pushToUploadEvidence(context);
+                        Get.back();
+                        Get.to(() => UploadEvidence());
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -689,9 +674,9 @@ class _SubmitYourEvidence extends StatelessWidget {
   }
 }
 
-class _EndHunt extends StatelessWidget {
+class _EndHunt extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -714,7 +699,7 @@ class _EndHunt extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            AppNavigation.pop(context);
+                            Get.back();
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -734,8 +719,7 @@ class _EndHunt extends StatelessWidget {
                       paddingBottom: 10,
                     ),
                     MyText(
-                      text:
-                          'Ending the hunt will lock all submissions and start the final review phase.',
+                      text: 'Ending the hunt will lock all submissions and start the final review phase.',
                       size: 13,
                       textAlign: TextAlign.center,
                       weight: FontWeight.w500,
@@ -745,19 +729,20 @@ class _EndHunt extends StatelessWidget {
                     MyBorderButton(
                       buttonText: 'Cancel',
                       onTap: () {
-                        AppNavigation.pop(context);
+                        Get.back();
                       },
                     ),
                     SizedBox(height: 16),
                     MyButton(
                       buttonText: 'End Hunt',
                       onTap: () {
-                        AppNavigation.pop(context);
-                        if (createGameController.selectedGameType ==
-                            GameType.timeBase)
-                          AppNavigation.pushToTimeBaseVoting(context);
-                        else
-                          AppNavigation.pushToJudgeBaseVoting(context);
+                        Get.back();
+                        final selectedGameType = ref.read(selectedGameTypeProvider);
+                        if (selectedGameType == GameType.timeBase) {
+                          Get.to(() => TimeBaseVoting());
+                        } else {
+                          Get.to(() => JudgeBaseVoting());
+                        }
                       },
                     ),
                   ],

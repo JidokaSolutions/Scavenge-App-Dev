@@ -1,26 +1,27 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/core/constants/getx_controller_instances.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/create_game_controller/create_game_controller.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import '../logic/create_game_provider.dart';
+import '../logic/create_game_state.dart';
 
-class ChoosePlayMode extends StatefulWidget {
+class ChoosePlayMode extends ConsumerStatefulWidget {
   const ChoosePlayMode({super.key});
 
   @override
-  State<ChoosePlayMode> createState() => _ChoosePlayModeState();
+  ConsumerState<ChoosePlayMode> createState() => _ChoosePlayModeState();
 }
 
-class _ChoosePlayModeState extends State<ChoosePlayMode> {
+class _ChoosePlayModeState extends ConsumerState<ChoosePlayMode> {
   int currentIndex = -1;
 
   @override
@@ -73,19 +74,17 @@ class _ChoosePlayModeState extends State<ChoosePlayMode> {
             textSize: 16,
             buttonText: 'Next',
             onTap: () {
-              if (createGameController.selectedPlayMode.value ==
-                  PlayMode.solo) {
-                showDialog(
-                  context: context,
-                  builder: (context) =>
+              if (ref.read(selectedPlayModeProvider) == PlayMode.solo) {
+                Get.dialog(
                   _StartAlone(
                     onStartGame: () {
-                      createGameController.nextStep();
+                      ref.read(createGameProvider.notifier).nextStep();
                     },
                   ),
                 );
-              } else
-                createGameController.nextStep();
+              } else {
+                ref.read(createGameProvider.notifier).nextStep();
+              }
             },
             isDisabled: currentIndex == -1,
           ),
@@ -97,7 +96,7 @@ class _ChoosePlayModeState extends State<ChoosePlayMode> {
   void setCurrentIndex(int index) {
     setState(() {
       currentIndex = index;
-      createGameController.selectPlayMode(
+      ref.read(createGameProvider.notifier).selectPlayMode(
         currentIndex == 0 ? PlayMode.solo : PlayMode.withFriends,
       );
     });
@@ -194,7 +193,7 @@ class _StartAlone extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            AppNavigation.pop(context);
+                            Get.back();
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -225,7 +224,7 @@ class _StartAlone extends StatelessWidget {
                     MyButton(
                       buttonText: 'Start Game',
                       onTap: () {
-                        AppNavigation.pop(context);
+                        Get.back();
                         onStartGame();
                       },
                     ),

@@ -1,26 +1,27 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/core/constants/getx_controller_instances.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/create_game_controller/create_game_controller.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_time_base_hunt.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import '../logic/create_game_provider.dart';
+import '../logic/create_game_state.dart';
 
-class ChooseGameType extends StatefulWidget {
+class ChooseGameType extends ConsumerStatefulWidget {
   const ChooseGameType({super.key});
 
   @override
-  State<ChooseGameType> createState() => _ChooseGameTypeState();
+  ConsumerState<ChooseGameType> createState() => _ChooseGameTypeState();
 }
 
-class _ChooseGameTypeState extends State<ChooseGameType> {
+class _ChooseGameTypeState extends ConsumerState<ChooseGameType> {
   int currentIndex = -1;
 
   @override
@@ -78,11 +79,11 @@ class _ChooseGameTypeState extends State<ChooseGameType> {
           child: MyButton(
             buttonText: 'Next',
             onTap: () {
-              if (createGameController.selectedPlayMode.value ==
-                  PlayMode.solo) {
-                AppNavigation.pushToSoloTimeBaseHunt(context);
-              } else
-                createGameController.nextStep();
+              if (ref.read(selectedPlayModeProvider) == PlayMode.solo) {
+                Get.to(() => SoloTimeBaseHunt());
+              } else {
+                ref.read(createGameProvider.notifier).nextStep();
+              }
             },
             isDisabled: currentIndex == -1,
           ),
@@ -96,13 +97,13 @@ class _ChooseGameTypeState extends State<ChooseGameType> {
       currentIndex = index;
       switch (index) {
         case 0:
-          createGameController.selectGameType(GameType.timeBase);
+          ref.read(createGameProvider.notifier).selectGameType(GameType.timeBase);
           break;
         case 1:
-          createGameController.selectGameType(GameType.judging);
+          ref.read(createGameProvider.notifier).selectGameType(GameType.judging);
           break;
         case 2:
-          createGameController.selectGameType(GameType.combination);
+          ref.read(createGameProvider.notifier).selectGameType(GameType.combination);
           break;
       }
     });

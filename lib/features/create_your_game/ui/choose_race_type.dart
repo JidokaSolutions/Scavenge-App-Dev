@@ -1,26 +1,27 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:scavenge_hunt/core/routes/app_navigation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
-import 'package:scavenge_hunt/core/constants/getx_controller_instances.dart';
-import 'package:scavenge_hunt/features/create_your_game/ui/create_game_controller/create_game_controller.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_exploring_hunt.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import '../logic/create_game_provider.dart';
+import '../logic/create_game_state.dart';
 
-class ChooseRaceType extends StatefulWidget {
+class ChooseRaceType extends ConsumerStatefulWidget {
   const ChooseRaceType({super.key});
 
   @override
-  State<ChooseRaceType> createState() => _ChooseRaceTypeState();
+  ConsumerState<ChooseRaceType> createState() => _ChooseRaceTypeState();
 }
 
-class _ChooseRaceTypeState extends State<ChooseRaceType> {
+class _ChooseRaceTypeState extends ConsumerState<ChooseRaceType> {
   int currentIndex = -1;
 
   @override
@@ -76,12 +77,12 @@ class _ChooseRaceTypeState extends State<ChooseRaceType> {
           child: MyButton(
             buttonText: 'Next',
             onTap: () {
-              if (createGameController.selectedPlayMode.value ==
-                      PlayMode.solo &&
-                  currentIndex == 0)
-                AppNavigation.pushToSoloExploringHunt(context);
-              else
-                createGameController.nextStep();
+              if (ref.read(selectedPlayModeProvider) == PlayMode.solo &&
+                  currentIndex == 0) {
+                Get.to(() => SoloExploringHunt());
+              } else {
+                ref.read(createGameProvider.notifier).nextStep();
+              }
             },
             isDisabled: currentIndex == -1,
           ),
