@@ -9,7 +9,14 @@ import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
 
 class LocationPermissionDialogWidget extends StatelessWidget {
-  const LocationPermissionDialogWidget({super.key});
+  final VoidCallback? onAllowPressed;
+  final VoidCallback? onDontAllowPressed;
+
+  const LocationPermissionDialogWidget({
+    super.key,
+    this.onAllowPressed,
+    this.onDontAllowPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,10 +63,10 @@ class LocationPermissionDialogWidget extends StatelessWidget {
                       ),
                       MyButton(
                         buttonText: 'Allow',
-                        onTap: () => AppNavigation.goToLogin(context),
+                        onTap: onAllowPressed ?? () => AppNavigation.goToLogin(context),
                       ),
                       MyText(
-                        onTap: () => AppNavigation.goToLogin(context),
+                        onTap: onDontAllowPressed ?? () => AppNavigation.goToLogin(context),
                         text: 'Don\'t Allow',
                         size: 14,
                         fontFamily: AppFonts.Fredoka,

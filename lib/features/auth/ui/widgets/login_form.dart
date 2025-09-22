@@ -5,6 +5,7 @@ import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_fonts.dart';
 import '../../../../core/constants/app_sizes.dart';
 import '../../../../core/routes/app_navigation.dart';
+import '../../../../core/services/location_permission_service.dart';
 import '../../../../core/widgets/custom_check_box_widget.dart';
 import '../../../../core/widgets/headings_widget.dart';
 import '../../../../core/widgets/my_button_widget.dart';
@@ -37,6 +38,15 @@ class _LoginFormState extends ConsumerState<LoginForm> {
 
   void _handleLogin() async {
     if (_formKey.currentState?.validate() ?? false) {
+      // Check location permission before proceeding with login
+      final hasPermission = await LocationPermissionService.checkLocationPermissionForLogin(context);
+
+      if (!hasPermission) {
+        // Permission denied, stop login process
+        return;
+      }
+
+      // Proceed with login if permission is granted
       final authNotifier = ref.read(authNotifierProvider.notifier);
       await authNotifier.login(
         _emailController.text.trim(),
@@ -61,7 +71,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
       } else if (next.isAuthenticated) {
         // Navigate to home screen
         // Navigation handled by AuthWrapper
-        AppNavigation.pushToHome(context);
+        // AppNavigation.pushToHome(context);
       }
     });
 

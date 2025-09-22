@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:scavenge_hunt/features/landing/ui/home.dart';
 
 import '../../landing/ui/landing_page.dart';
 import '../data/providers/auth_providers.dart';
@@ -16,7 +17,8 @@ class AuthWrapper extends ConsumerWidget {
     return switch (authState.status) {
       AuthStatus.initial => const _LoadingScreen(),
       AuthStatus.loading => const _LoadingScreen(),
-      AuthStatus.authenticated => const LandingPage(),
+      // AuthStatus.authenticated => const LandingPage(),
+      AuthStatus.authenticated => const Home(),
       AuthStatus.unauthenticated => const Login(),
       AuthStatus.registrationSuccess => const Login(),
       AuthStatus.error => const Login(),
