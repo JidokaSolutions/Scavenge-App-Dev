@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
@@ -80,7 +79,7 @@ class _ChooseGameTypeState extends ConsumerState<ChooseGameType> {
             buttonText: 'Next',
             onTap: () {
               if (ref.read(selectedPlayModeProvider) == PlayMode.solo) {
-                Get.to(() => SoloTimeBaseHunt());
+                AppNavigation.pushToSoloTimeBaseHunt(context);
               } else {
                 ref.read(createGameProvider.notifier).nextStep();
               }
