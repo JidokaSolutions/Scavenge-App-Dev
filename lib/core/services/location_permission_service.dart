@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:scavenge_hunt/core/utils/show_custom_generic_dialog.dart';
 import 'package:scavenge_hunt/core/widgets/dialogs/location_permission.dart';
 import 'package:scavenge_hunt/features/location/logic/location_notifier.dart';
 import 'package:scavenge_hunt/features/location/logic/location_provider.dart';
@@ -93,25 +94,20 @@ class LocationPermissionService {
     _isDialogShowing = true;
 
     try {
-      final result = await showDialog<bool>(
+      final result = await showCustomDialog<bool>(
         context: context,
         barrierDismissible: false,
-        builder: (dialogContext) {
-          _dialogContext = dialogContext;
-          return PopScope(
-            canPop: false, // Prevent back button dismissal
-            child: LocationPermissionDialogWidget(
-              onAllowPressed: () async {
-                Navigator.of(dialogContext).pop(true);
-                await openAppSettings();
-              },
-              onDontAllowPressed: () {
-                Navigator.of(dialogContext).pop(false);
-                _showPermissionRequiredMessage(context);
-              },
-            ),
-          );
-        },
+        preventBackButton: true,
+        widget: LocationPermissionDialogWidget(
+          onAllowPressed: () async {
+            Navigator.of(context).pop(true);
+            await openAppSettings();
+          },
+          onDontAllowPressed: () {
+            Navigator.of(context).pop(false);
+            _showPermissionRequiredMessage(context);
+          },
+        ),
       );
 
       return result ?? false;
