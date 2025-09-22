@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import '../ui/choose_play_mode.dart';
 import '../ui/choose_race_type.dart';
 import '../ui/choose_game_type.dart';
@@ -43,11 +42,11 @@ class CreateGameNotifier extends StateNotifier<CreateGameState> {
     }
   }
 
-  void previousStep() {
+  void previousStep({VoidCallback? ifNone}) {
     if (state.currentStep > 0) {
       state = state.copyWith(currentStep: state.currentStep - 1);
     } else {
-      Get.back();
+      ifNone?.call();
     }
   }
 

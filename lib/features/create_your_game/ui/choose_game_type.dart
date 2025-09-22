@@ -10,6 +10,7 @@ import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/features/create_your_game/ui/solo/solo_time_base_hunt.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
+import '../../../core/routes/app_navigation.dart';
 import '../logic/create_game_provider.dart';
 import '../logic/create_game_state.dart';
 

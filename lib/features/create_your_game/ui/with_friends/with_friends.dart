@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_constants.dart';
@@ -8,6 +7,7 @@ import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
 import 'package:scavenge_hunt/core/constants/app_styling.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/app.dart';
 import 'package:scavenge_hunt/features/create_your_game/logic/create_game_provider.dart';
 import 'package:scavenge_hunt/features/create_your_game/logic/create_game_state.dart';
@@ -193,7 +193,7 @@ class _MyProgressState extends State<_MyProgress> {
                         ],
                       ),
                       onTap: () {
-                        Get.to(() => ChatWithFriends());
+                        AppNavigation.pushToChatWithFriends(context);
                       },
                     ),
                   ),
@@ -208,7 +208,7 @@ class _MyProgressState extends State<_MyProgress> {
                   haveShadow: false,
                   buttonText: 'View Team Progress',
                   onTap: () {
-                    Get.to(() => ViewTeamProgress());
+                    AppNavigation.pushToViewTeamProgress(context);
                   },
                 ),
               ),
@@ -279,7 +279,7 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Task detail',
                                   onTap: () {
-                                    Get.to(() => GameTaskDetails());
+                                    AppNavigation.pushToGameTaskDetails(context);
                                   },
                                 ),
                               ),
@@ -291,7 +291,10 @@ class _MyProgressState extends State<_MyProgress> {
                                   weight: FontWeight.w500,
                                   buttonText: 'Submit Task',
                                   onTap: () {
-                                    Get.dialog(_SubmitYourEvidence());
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => _SubmitYourEvidence(),
+                                    );
                                   },
                                 ),
                               ),
@@ -311,7 +314,12 @@ class _MyProgressState extends State<_MyProgress> {
           child: MyButton(
             buttonText: 'End Hunt',
             onTap: () {
-              _taskCompleted.contains(true) ? Get.dialog(_EndHunt()) : null;
+              _taskCompleted.contains(true)
+                  ? showDialog(
+                      context: context,
+                      builder: (context) => _EndHunt(),
+                    )
+                  : null;
             },
             isDisabled: !_taskCompleted.contains(true),
           ),
@@ -599,7 +607,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -621,7 +629,7 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyButton(
                       buttonText: '',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -642,8 +650,8 @@ class _SubmitYourEvidence extends StatelessWidget {
                     MyBorderButton(
                       buttonText: '',
                       onTap: () {
-                        Get.back();
-                        Get.to(() => UploadEvidence());
+                        AppNavigation.pop(context);
+                        AppNavigation.pushToUploadEvidence(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -699,7 +707,7 @@ class _EndHunt extends ConsumerWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -729,19 +737,19 @@ class _EndHunt extends ConsumerWidget {
                     MyBorderButton(
                       buttonText: 'Cancel',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                       },
                     ),
                     SizedBox(height: 16),
                     MyButton(
                       buttonText: 'End Hunt',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         final selectedGameType = ref.read(selectedGameTypeProvider);
                         if (selectedGameType == GameType.timeBase) {
-                          Get.to(() => TimeBaseVoting());
+                          AppNavigation.pushToTimeBaseVoting(context);
                         } else {
-                          Get.to(() => JudgeBaseVoting());
+                          AppNavigation.pushToJudgeBaseVoting(context);
                         }
                       },
                     ),

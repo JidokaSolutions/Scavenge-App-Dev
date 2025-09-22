@@ -4,6 +4,7 @@ import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/custom_app_bar_widget.dart';
 import 'package:scavenge_hunt/core/widgets/custom_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
@@ -19,7 +20,7 @@ class CreateYourGame extends ConsumerWidget {
         backgroundColor: Colors.transparent,
         appBar: simpleAppBar(
           title: 'Create Your Game',
-          onLeadingTap: () => ref.read(createGameProvider.notifier).previousStep(),
+          onLeadingTap: () => ref.read(createGameProvider.notifier).previousStep(ifNone: () => AppNavigation.pop(context)),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

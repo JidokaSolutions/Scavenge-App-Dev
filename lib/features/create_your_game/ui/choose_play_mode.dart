@@ -2,12 +2,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
 import 'package:gradient_borders/gradient_borders.dart';
 import 'package:scavenge_hunt/core/constants/app_colors.dart';
 import 'package:scavenge_hunt/core/constants/app_fonts.dart';
 import 'package:scavenge_hunt/core/constants/app_images.dart';
 import 'package:scavenge_hunt/core/constants/app_sizes.dart';
+import 'package:scavenge_hunt/core/routes/app_navigation.dart';
 import 'package:scavenge_hunt/core/widgets/blur_container_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_button_widget.dart';
 import 'package:scavenge_hunt/core/widgets/my_text_widget.dart';
@@ -75,8 +75,9 @@ class _ChoosePlayModeState extends ConsumerState<ChoosePlayMode> {
             buttonText: 'Next',
             onTap: () {
               if (ref.read(selectedPlayModeProvider) == PlayMode.solo) {
-                Get.dialog(
-                  _StartAlone(
+                showDialog(
+                  context: context,
+                  builder: (context) => _StartAlone(
                     onStartGame: () {
                       ref.read(createGameProvider.notifier).nextStep();
                     },
@@ -193,7 +194,7 @@ class _StartAlone extends StatelessWidget {
                         Image.asset(Assets.imagesLogo, height: 64),
                         GestureDetector(
                           onTap: () {
-                            Get.back();
+                            AppNavigation.pop(context);
                           },
                           child: Image.asset(
                             Assets.imagesClose,
@@ -224,7 +225,7 @@ class _StartAlone extends StatelessWidget {
                     MyButton(
                       buttonText: 'Start Game',
                       onTap: () {
-                        Get.back();
+                        AppNavigation.pop(context);
                         onStartGame();
                       },
                     ),
