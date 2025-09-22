@@ -28,8 +28,7 @@ class CreateYourGame extends StatelessWidget {
             ),
             Expanded(
               child: Obx(
-                () => createGameController
-                    .stepChildren[createGameController.currentStep.value],
+                () => createGameController.stepChildren[createGameController.currentStep.value],
               ),
             ),
           ],
@@ -65,8 +64,7 @@ class _CustomStepper extends StatelessWidget {
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               stops: [0.0, 1.0],
-                              colors:
-                                  createGameController.currentStep.value > index
+                              colors: createGameController.currentStep.value > index
                                   ? [Color(0xff2BFF84), Color(0xFFFFFFFF)]
                                   : [
                                       kPrimaryColor.withOpacity(0.3),
@@ -93,9 +91,7 @@ class _CustomStepper extends StatelessWidget {
                   children: List.generate(labels.length, (index) {
                     return Obx(
                       () => Image.asset(
-                        createGameController.currentStep.value >= index
-                            ? Assets.imagesCurrentStep
-                            : Assets.imagesNotCurrentStep,
+                        createGameController.currentStep.value >= index ? Assets.imagesCurrentStep : Assets.imagesNotCurrentStep,
                         height: 24,
                       ),
                     );
@@ -115,9 +111,7 @@ class _CustomStepper extends StatelessWidget {
                   text: labels[index],
                   size: 12,
                   fontFamily: AppFonts.Fredoka,
-                  color: createGameController.currentStep.value >= index
-                      ? kPrimaryColor
-                      : kTertiaryColor,
+                  color: createGameController.currentStep.value >= index ? kPrimaryColor : kTertiaryColor,
                   weight: FontWeight.w500,
                 ),
               );

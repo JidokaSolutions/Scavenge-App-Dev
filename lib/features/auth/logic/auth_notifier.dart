@@ -52,13 +52,13 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
     try {
       final loginRequest = LoginRequest(email: email, password: password);
-      final authResponse = await _authApiService.login(loginRequest);
+      // final authResponse = await _authApiService.login(loginRequest);
 
-      await _storeAuthData(authResponse);
+      // await _storeAuthData(authResponse);
 
       state = state.copyWith(
         status: AuthStatus.authenticated,
-        user: authResponse,
+        // user: authResponse,
         errorMessage: null,
       );
     } catch (e) {
